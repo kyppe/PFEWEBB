@@ -1,13 +1,13 @@
 <div class="wrapper">
-    <div class="sidebar" data-color="white" data-active-color="danger">
+    <div class="sidebar" data-color="white" data-active-color="danger" *ngIf="!isLoginPage()">
         <sidebar-cmp></sidebar-cmp>
     </div>
     <div class="main-panel">
-        <navbar-cmp></navbar-cmp>
+        <navbar-cmp *ngIf="!isLoginPage()"></navbar-cmp>
         <div class="content">
             <router-outlet></router-outlet>
         </div>
-        <footer-cmp></footer-cmp>
+        <footer-cmp *ngIf="!isLoginPage()"></footer-cmp>
     </div>
 </div>
-<fixedplugin-cmp></fixedplugin-cmp>
+<fixedplugin-cmp *ngIf="!isLoginPage()"></fixedplugin-cmp>

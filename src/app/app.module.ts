@@ -12,12 +12,16 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from "./pages/login/login.component";
+import { ModelsComponent } from './models/models.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    LoginComponent,
+    ModelsComponent
   ],
   imports: [
     BrowserAnimationsModule,

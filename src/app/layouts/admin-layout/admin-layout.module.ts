@@ -29,7 +29,8 @@ import { AjoutCommandeComponent } from 'app/pages/ajout-commande/ajout-commande.
     CommandesComponent,
     AjoutClientComponent,
     AjoutCommercialComponent,
-    AjoutCommandeComponent
+    AjoutCommandeComponent,
+    
 
   ]
 })

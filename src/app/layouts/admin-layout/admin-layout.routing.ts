@@ -13,8 +13,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'clients',        component: ClientsComponent },
     { path: 'commerciaux',    component: CommerciauxComponent },
     { path: 'commandes',      component: CommandesComponent },
-    { path: 'ajoutCommercial',           component: AjoutCommercialComponent },
-    { path: 'ajoutCommande',           component: AjoutCommandeComponent },
+    { path: 'ajoutCommercial',component: AjoutCommercialComponent },
+    { path: 'ajoutCommande',  component: AjoutCommandeComponent },
     { path: 'ajoutClient',           component: AjoutClientComponent },
+    
 
 ];
