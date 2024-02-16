@@ -13,15 +13,16 @@ export class ClientService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Client[]> {
+    
     return this.http.get<Client[]>(this.url);
   }
   getById(id: number): Observable<Client> {
     return this.http.get<Client>(this.url + '/' + id);
   }
-  addClient(client: Client): Observable<Client> {
+  addClient(client: any): Observable<Client> {
     return this.http.post<Client>(this.url, client);
   }
-  deleteClient(client: Client) {
-    return this.http.delete(this.url + '/'+client.id);
+  deleteClient(id: number):Observable<any>  {
+    return this.http.delete<void>(this.url + '/'+id);
   }
 }

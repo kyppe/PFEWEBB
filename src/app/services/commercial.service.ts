@@ -18,10 +18,10 @@ export class CommercialService {
   getById(id: number): Observable<Commercial> {
     return this.http.get<Commercial>(this.url + '/' + id);
   }
-  addCommercial(commercial: Commercial): Observable<Commercial> {
+  addCommercial(commercial: any): Observable<Commercial> {
     return this.http.post<Commercial>(this.url, commercial);
   }
-  deleteCommercial(commercial: Commercial) {
-    return this.http.delete(this.url + '/'+commercial.id);
+  deleteCommercial(id: number):Observable<any>  {
+    return this.http.delete<void>(this.url + '/'+id);
   }
 }

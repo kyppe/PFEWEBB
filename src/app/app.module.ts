@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from "ngx-toastr";
 
+
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
@@ -13,7 +14,10 @@ import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from "./pages/login/login.component";
-import { ModelsComponent } from './models/models.component';
+import { ProduitComponent } from './pages/produit/produit.component';
+import { AjoutProduitComponent } from './pages/ajout-produit/ajout-produit.component';
+import {HttpClientModule} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -21,13 +25,14 @@ import { ModelsComponent } from './models/models.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    ModelsComponent
+    ProduitComponent,
+    AjoutProduitComponent,
+    
   ],
   imports: [
     BrowserAnimationsModule,
-    RouterModule.forRoot(AppRoutes,{
-      useHash: true
-    }),
+    HttpClientModule,
+    RouterModule.forRoot(AppRoutes),
     SidebarModule,
     NavbarModule,
     ToastrModule.forRoot(),

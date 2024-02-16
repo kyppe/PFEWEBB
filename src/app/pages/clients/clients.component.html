@@ -10,7 +10,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning"><a href="/#/ajoutClient" style="color: white;">Ajouter un client</a></button>
+        <button type="button" class="btn btn-warning"><a href="/ajoutClient" style="color: white;">Ajouter un client</a></button>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -23,7 +23,11 @@
                 Prenom
               </th>
               <th>
-                CIN
+                Email
+              </th>
+
+              <th>
+                Phone
               </th>
             
               <th>
@@ -32,21 +36,25 @@
              
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let cli of tabClients">
                 <td>
-                  Dakota Ricee
+                  {{cli.lastname}}
                 </td>
                 <td>
-                  Niger
+                  {{cli.name}}
                 </td>
                 <td>
-                  Oud-Turnhout
+                  {{cli.email}}
+                </td>
+
+                <td>
+                  {{cli.phone}}
                 </td>
 
                 <td>
                  <Button type="button" class="btn btn-warning mr-1">Mettre à jour</Button>      
                             
-                 <button type="button" class="btn btn-warning">Supprimer</button> 
+                 <button class="btn btn-warning"  (click)="deleteClient(cli.id)">Supprimer</button> 
 
                 </td>
 

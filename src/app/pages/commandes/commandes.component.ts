@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'commandes-cmp',
@@ -6,4 +6,16 @@ import { Component } from '@angular/core';
     templateUrl: 'commandes.component.html'
 })
 
-export class CommandesComponent{}
+export class CommandesComponent implements OnInit{
+
+    // tabCommandes!:Commande[];
+
+
+    constructor(){}
+
+
+    ngOnInit(): void {
+        
+    }
+
+}
