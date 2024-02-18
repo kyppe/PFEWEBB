@@ -14,6 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AjoutClientComponent } from 'app/pages/ajout-client/ajout-client.component';
 import { AjoutCommercialComponent } from 'app/pages/ajout-commercial/ajout-commercial.component';
 import { AjoutCommandeComponent } from 'app/pages/ajout-commande/ajout-commande.component';
+import { AjoutProduitComponent } from 'app/pages/ajout-produit/ajout-produit.component';
+import { EditClientComponent } from 'app/pages/edit-client/edit-client.component';
+import { EditCommandeComponent } from 'app/pages/edit-commande/edit-commande.component';
+import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commercial.component';
+import { ProduitComponent } from 'app/pages/produit/produit.component';
 
 @NgModule({
   imports: [
@@ -28,9 +33,15 @@ import { AjoutCommandeComponent } from 'app/pages/ajout-commande/ajout-commande.
     ClientsComponent,
     CommerciauxComponent,
     CommandesComponent,
+    ProduitComponent,
     AjoutClientComponent,
     AjoutCommercialComponent,
     AjoutCommandeComponent,
+    AjoutProduitComponent,
+    EditClientComponent,
+    EditClientComponent,
+    EditCommandeComponent,
+    EditCommercialComponent
     
 
   ]

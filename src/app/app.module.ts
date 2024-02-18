@@ -6,17 +6,17 @@ import { ToastrModule } from "ngx-toastr";
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { FooterModule } from './shared/footer/footer.module';
-import { NavbarModule} from './shared/navbar/navbar.module';
-import { FixedPluginModule} from './shared/fixedplugin/fixedplugin.module';
+import { NavbarModule } from './shared/navbar/navbar.module';
+import { FixedPluginModule } from './shared/fixedplugin/fixedplugin.module';
 
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routing';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from "./pages/login/login.component";
-import { ProduitComponent } from './pages/produit/produit.component';
-import { AjoutProduitComponent } from './pages/ajout-produit/ajout-produit.component';
-import {HttpClientModule} from '@angular/common/http';
+
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -25,9 +25,8 @@ import {HttpClientModule} from '@angular/common/http';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    ProduitComponent,
-    AjoutProduitComponent,
-    
+
+
   ],
   imports: [
     BrowserAnimationsModule,

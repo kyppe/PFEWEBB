@@ -35,5 +35,11 @@ export class ClientsComponent implements OnInit {
         
       }
 
+      updateClient(id:number)
+      {
+        this.router.navigate(['/client', id]);
+
+      }
+
 
 }

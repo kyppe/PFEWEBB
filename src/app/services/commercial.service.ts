@@ -24,4 +24,7 @@ export class CommercialService {
   deleteCommercial(id: number):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
   }
+  updateCommercial(id: number, commercial: any): Observable<any> {
+    return this.http.put<Commercial>(this.url+'/'+id, commercial);
+  }
 }

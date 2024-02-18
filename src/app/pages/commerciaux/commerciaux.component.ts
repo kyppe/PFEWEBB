@@ -27,9 +27,16 @@ export class CommerciauxComponent implements OnInit{
 
         this.commercialService.getAll().subscribe(data=>this.tabCommerciaux=data)
 
-        
     }
 
+
+   
+    
+    updateCommercial(id:number)
+    {
+      this.router.navigate(['/commerciaux', id]);
+
+    }
 
     deleteCommercial(id:number)
     {
