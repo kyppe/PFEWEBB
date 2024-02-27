@@ -10,48 +10,45 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning"><a href="/ajoutCommande" style="color: white;">Ajouter une commande</a></button>
+        <button type="button" class="btn btn-warning"><a href="/ajoutCommande" style="color: white;">Ajouter une
+            commande</a></button>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
             <thead class=" text-primary">
               <th>
-                Nom
+                id
               </th>
               <th>
-                Prenom
+                Client
               </th>
-              <th>
-                CIN
-              </th>
-            
+
               <th>
                 Actions
               </th>
-             
+
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let com of tabCommandes">
                 <td>
-                  Dakota Ricee
+                  {{ com.id }} </td>
+                <td>
+                  {{com.client.name}} &nbsp {{com.client.lastname}}
                 </td>
+            
                 <td>
-                  Niger
-                </td>
-                <td>
-                  Oud-Turnhout
+                  <Button type="button" class="btn btn-warning mr-1" (click)="toDetailPage(com.id)">Voir détails</Button>
+
+
+                  <Button type="button" class="btn btn-warning mr-1" (click)="updateCommande(com.id)">Mettre à jour</Button>
+
+                  <button type="button" class="btn btn-warning" (click)="deleteCommande(com.id)">Supprimer</button>
+
                 </td>
 
-                <td>
-                 <Button type="button" class="btn btn-warning mr-1">Mettre à jour</Button>      
-                            
-                 <button type="button" class="btn btn-warning">Supprimer</button> 
 
-                </td>
 
-                
-               
               </tr>
             </tbody>
           </table>
@@ -59,4 +56,3 @@
       </div>
     </div>
   </div>
- 

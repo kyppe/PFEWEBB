@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="card card-user">
         <div class="card-header">
-          <h5 class="card-title">Ajouter un commercial</h5>
+          <h5 class="card-title">Mettre à jour un commercial</h5>
         </div>
         <div class="card-body">
           <form [formGroup]="commercialForm" (submit)="Editcommercial()">
@@ -48,7 +48,7 @@
             </div>
             <div class="row">
               <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round">Mettre à jour</button>
+                <button type="submit" class="btn btn-primary btn-round" (click)="Editcommercial()">Mettre à jour</button>
               </div>
             </div>
           </form>

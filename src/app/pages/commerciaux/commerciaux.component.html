@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterCommercials()" >
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -36,7 +36,7 @@
              
             </thead>
             <tbody>
-              <tr *ngFor="let cli of tabCommerciaux">
+              <tr *ngFor="let cli of filteredCommercials">
                 <td>
                   {{cli.lastname}}
                 </td>
@@ -52,7 +52,7 @@
                 </td>
 
                 <td>
-                 <Button type="button" class="btn btn-warning mr-1">Mettre à jour</Button>      
+                 <Button type="button" class="btn btn-warning mr-1" (click)="updateCommercial(cli.id)">Mettre à jour</Button>      
                             
                  <button class="btn btn-warning"  (click)="deleteCommercial(cli.id)">Supprimer</button> 
 

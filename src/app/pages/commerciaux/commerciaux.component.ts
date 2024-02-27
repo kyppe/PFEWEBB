@@ -4,44 +4,63 @@ import { Commercial } from 'app/models/commercial';
 import { CommercialService } from 'app/services/commercial.service';
 
 declare interface TableData {
-    headerRow: string[];
-    dataRows: string[][];
+  headerRow: string[];
+  dataRows: string[][];
 }
 
 @Component({
-    selector: 'commerciaux-cmp',
-    moduleId: module.id,
-    templateUrl: 'commerciaux.component.html'
+  selector: 'commerciaux-cmp',
+  moduleId: module.id,
+  templateUrl: 'commerciaux.component.html'
 })
 
-export class CommerciauxComponent implements OnInit{
+export class CommerciauxComponent implements OnInit {
 
 
-    
-    tabCommerciaux!:Commercial[];
+
+  tabCommerciaux!: Commercial[];
+  searchText: string = '';
+  filteredCommercials!: Commercial[];
+
+  constructor(private commercialService: CommercialService, private router: Router) { }
+
+  ngOnInit() {
+
+    this.commercialService.getAll().subscribe(data => {
+      this.tabCommerciaux = data;
+      this.filteredCommercials=this.tabCommerciaux;
+
+    })
+  }
 
 
-    constructor(private commercialService:CommercialService,private router: Router){}
+  filterCommercials() {
+        
+    this.filteredCommercials=this.tabCommerciaux.filter(Commercial => {
+       return Commercial.name.toLowerCase().includes(this.searchText.toLowerCase());
+       
+    });
 
-    ngOnInit(){
-
-        this.commercialService.getAll().subscribe(data=>this.tabCommerciaux=data)
-
-    }
+    console.log(this.filteredCommercials);
+  }
 
 
-   
-    
-    updateCommercial(id:number)
-    {
-      this.router.navigate(['/commerciaux', id]);
-
-    }
-
-    deleteCommercial(id:number)
-    {
-      this.commercialService.deleteCommercial(id).subscribe(data=>{console.log("hello");
-      ;location.reload()})
+  deleteCommercial(id:number)
+  {
+    this.commercialService.deleteCommercial(id).subscribe(data=>{
       
-    }
+      this.filteredCommercials=this.filteredCommercials.filter(e=>e.id!=id);
+      console.log(this.filteredCommercials);
+      
+    })
+    
+  }
+
+
+  updateCommercial(id: number) {
+    this.router.navigate(['/editCommercial', id]);
+
+  }
+
+ 
 }

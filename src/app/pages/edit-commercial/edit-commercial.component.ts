@@ -25,7 +25,13 @@ export class EditCommercialComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = +params['id'];      // + convertit l id en string
-      this.commercialService.getById(this.id).subscribe(data => { this.aux = data; this.commercialForm.patchValue(this.aux); });
+      this.commercialService.getById(this.id).subscribe(data => { this.aux = data;
+        this.commercialForm.get('Email').setValue(this.aux.email);
+        this.commercialForm.get('prenom').setValue(this.aux.name);
+        this.commercialForm.get('nom').setValue(this.aux.lastname);
+        this.commercialForm.get('telephone').setValue(this.aux.phone);
+        this.commercialForm.get('cin').setValue(this.aux.cin);
+      });
 
     });
   }
@@ -42,7 +48,7 @@ export class EditCommercialComponent implements OnInit {
       lastname: this.commercialForm.value.nom,
       phone: this.commercialForm.value.telephone,
       cin: this.commercialForm.value.cin
-    }).subscribe(data => { this.router.navigate(['/commercials']); console.log(data) }
+    }).subscribe(data => { this.router.navigate(['/commerciaux']); console.log(data) }
     )
 
 

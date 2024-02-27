@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Client } from 'app/models/client';
 import { ClientService } from 'app/services/client.service';
+import { log } from 'console';
 
 @Component({
     selector: 'clients-cmp',
@@ -13,6 +14,9 @@ import { ClientService } from 'app/services/client.service';
 export class ClientsComponent implements OnInit {
 
     tabClients!: Client[];
+    searchText: string = '';
+    filteredClients!:Client[];
+
 
     constructor(public clientService: ClientService,private router: Router) {
 
@@ -22,22 +26,35 @@ export class ClientsComponent implements OnInit {
      ngOnInit(): void {
         this.clientService.getAll().subscribe((clients: Client[]) => {
           this.tabClients = clients;
-          console.log(this.tabClients); 
+          this.filteredClients=this.tabClients
         });
+      }
+
+      filterClients() {
+        
+        this.filteredClients=this.tabClients.filter(client => {
+           return client.name.toLowerCase().includes(this.searchText.toLowerCase());
+           
+        });
+
+        console.log(this.filteredClients);
       }
 
 
       deleteClient(id:number)
       {
-        console.log("aaaa")
-        this.clientService.deleteClient(id).subscribe(data=>{console.log("hello");
-        ;location.reload()})
+        this.clientService.deleteClient(id).subscribe(data=>{
+          
+          this.filteredClients=this.filteredClients.filter(e=>e.id!=id);
+          console.log(this.filteredClients);
+          
+        })
         
       }
 
       updateClient(id:number)
       {
-        this.router.navigate(['/client', id]);
+        this.router.navigate(['/editClient', id]);
 
       }
 

@@ -12,6 +12,7 @@ import { EditProduitComponent } from 'app/pages/edit-produit/edit-produit.compon
 import { EditClientComponent } from 'app/pages/edit-client/edit-client.component';
 import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commercial.component';
 import { EditCommandeComponent } from 'app/pages/edit-commande/edit-commande.component';
+import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-commande.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -26,6 +27,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editClient/:id',           component: EditClientComponent },
     { path: 'editCommercial/:id',           component: EditCommercialComponent },
     { path: 'editCommande/:id',           component: EditCommandeComponent },
+    { path: 'detailCommande/:id',           component: DetailCommandeComponent },
+
 
 
     

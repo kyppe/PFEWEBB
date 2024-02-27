@@ -25,7 +25,13 @@ export class EditClientComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = +params['id'];      // + convertit l id en string
-      this.clientService.getById(this.id).subscribe(data => { this.aux = data; this.clientForm.patchValue(this.aux); });
+      this.clientService.getById(this.id).subscribe(data => { this.aux = data; 
+        this.clientForm.get('Email').setValue(this.aux.email);
+        this.clientForm.get('prenom').setValue(this.aux.name);
+        this.clientForm.get('nom').setValue(this.aux.lastname);
+        this.clientForm.get('telephone').setValue(this.aux.phone);
+        this.clientForm.get('cin').setValue(this.aux.cin);
+        });
 
     });
   }

@@ -19,6 +19,8 @@ import { EditClientComponent } from 'app/pages/edit-client/edit-client.component
 import { EditCommandeComponent } from 'app/pages/edit-commande/edit-commande.component';
 import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commercial.component';
 import { ProduitComponent } from 'app/pages/produit/produit.component';
+import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-commande.component';
+
 
 @NgModule({
   imports: [
@@ -26,7 +28,7 @@ import { ProduitComponent } from 'app/pages/produit/produit.component';
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
   ],
   declarations: [
     DashboardComponent,
@@ -41,7 +43,9 @@ import { ProduitComponent } from 'app/pages/produit/produit.component';
     EditClientComponent,
     EditClientComponent,
     EditCommandeComponent,
-    EditCommercialComponent
+    EditCommercialComponent,
+    DetailCommandeComponent,
+
     
 
   ]

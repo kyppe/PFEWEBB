@@ -23,7 +23,7 @@ export class AjoutCommandeComponent implements OnInit {
 
 
 
-  ajouterCommercial()
+  ajouterCommande()
   {
 
     this.commercialService.addCommercial({

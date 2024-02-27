@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterClients()" >
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -36,7 +36,7 @@
              
             </thead>
             <tbody>
-              <tr *ngFor="let cli of tabClients">
+              <tr *ngFor="let cli of filteredClients">
                 <td>
                   {{cli.lastname}}
                 </td>
