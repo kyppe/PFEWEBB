@@ -58,5 +58,10 @@ export class ClientsComponent implements OnInit {
 
       }
 
+      detailsClient(id:number)
+      {
+        this.router.navigate(['/detailClient', id]);
+
+      }
 
 }

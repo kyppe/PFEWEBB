@@ -28,4 +28,8 @@ export class ClientService {
   updateClient(id: number, client: any): Observable<Client> {
     return this.http.put<Client>(this.url+'/'+id, client);
   }
+  activateClient(id:number,client:any):Observable<Client>
+  {
+    return this.http.put<Client>(this.url+'/actif/'+id,client)
+  }
 }

@@ -20,6 +20,7 @@ import { EditCommandeComponent } from 'app/pages/edit-commande/edit-commande.com
 import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commercial.component';
 import { ProduitComponent } from 'app/pages/produit/produit.component';
 import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-commande.component';
+import { DetailClientComponent } from 'app/pages/detail-client/detail-client.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-comman
     EditCommandeComponent,
     EditCommercialComponent,
     DetailCommandeComponent,
+    DetailClientComponent
 
     
 

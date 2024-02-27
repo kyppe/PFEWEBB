@@ -52,7 +52,10 @@
                 </td>
 
                 <td>
-                 <Button type="button" class="btn btn-warning mr-1" (click)="updateClient(cli.id)">Mettre à jour</Button>      
+                  
+                  <button class="btn btn-warning  mr-1"  (click)="detailsClient(cli.id)">Voir détails</button> 
+
+                  <Button type="button" class="btn btn-warning mr-1" (click)="updateClient(cli.id)">Mettre à jour</Button>      
                             
                  <button class="btn btn-warning"  (click)="deleteClient(cli.id)">Supprimer</button> 
 
