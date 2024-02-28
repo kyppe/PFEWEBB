@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-header">
         <div class="input-group no-border">
-          <input type="text" value="" class="form-control" placeholder="Search...">
+          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterCommandes()">
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -30,11 +30,11 @@
 
             </thead>
             <tbody>
-              <tr *ngFor="let com of tabCommandes">
+              <tr *ngFor="let com of filteredCommandes">
                 <td>
                   {{ com.id }} </td>
                 <td>
-                  {{com.client.name}} &nbsp {{com.client.lastname}}
+                  {{com.client.name}}  {{com.client.lastname}}
                 </td>
             
                 <td>

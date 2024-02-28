@@ -3,17 +3,18 @@ import { Produit } from "./produit";
 
 export class RowCommande {
 
-
+    id:number;
     commande:Commande;
-    produit:Produit;
-    quantite:Number;
+    product:Produit;
+    qte:Number;
 
-    constructor(commande:Commande,produit:Produit,quantite:Number)
+    constructor(commande:Commande,product:Produit,qte:Number,id:number)
     {
 
         this.commande=commande;
-        this.produit=produit;
-        this.quantite=quantite;
+        this.product=product;
+        this.qte=qte;
+        this.id=id;
     }
 
 }

@@ -12,13 +12,20 @@ import { CommandeService } from 'app/services/commande.service';
 export class CommandesComponent implements OnInit {
 
     tabCommandes!: Commande[];
+    searchText: string = '';
+    filteredCommandes!: Commande[];
 
 
     constructor(public commandeService: CommandeService, private router: Router) { }
 
 
     ngOnInit(): void {
-        this.commandeService.getAll().subscribe(data => this.tabCommandes = data)
+        this.commandeService.getAll().subscribe(data => { this.tabCommandes = data; this.filteredCommandes = this.tabCommandes });
+    }
+
+    filterCommandes() {
+
+        this.filteredCommandes = this.tabCommandes.filter(com => { return com.client.lastname.toLowerCase().includes(this.searchText.toLowerCase()); })
     }
 
 
@@ -32,7 +39,7 @@ export class CommandesComponent implements OnInit {
     }
 
     deleteCommande(id: number) {
-        this.commandeService.deleteCommande(id).subscribe(data => { })
+        this.commandeService.deleteCommande(id).subscribe(data => {this.filteredCommandes=this.filteredCommandes.filter(e=>e.id!=id) })
 
     }
 

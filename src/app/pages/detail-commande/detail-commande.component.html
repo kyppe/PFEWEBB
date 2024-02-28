@@ -1,0 +1,40 @@
+
+<div class="container mt-4">
+    <h2 class="mb-4">Details Commande  </h2>
+    
+    <div class="card mb-4">
+      <div class="card-header">
+        Client
+    </div>
+      <div class="card-body">
+        <p class="card-text"><strong>Nom,Prenom:</strong>  {{commande.client.lastname}} {{ commande.client.name }}</p>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header">
+        Lignes de la commande
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Reference Produit</th>
+                <th>Intitulé Produit</th>
+                <th>Quantité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of commande.rows">
+                <td>{{ row.product.ref }}</td>
+                <td>{{ row.product.name }}</td>
+                <td>{{ row.qte }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
