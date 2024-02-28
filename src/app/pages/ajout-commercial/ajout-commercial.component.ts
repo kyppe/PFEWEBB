@@ -21,21 +21,12 @@ export class AjoutCommercialComponent implements OnInit {
   }
 
 
-  generateRandomPassword(length: number): string {
-    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let password = '';
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      password += charset[randomIndex];
-    }
-    return password;
-  }
+
   ajouterCommercial()
   {
 
     this.commercialService.addCommercial({
       email:this.commercialForm.value.Email,
-      password:this.generateRandomPassword(7),
       name:this.commercialForm.value.prenom,
       lastname:this.commercialForm.value.nom,
       phone:this.commercialForm.value.telephone,

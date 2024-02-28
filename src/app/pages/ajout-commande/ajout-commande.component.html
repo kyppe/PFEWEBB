@@ -1,65 +1,49 @@
-<div class="row">
-    
-  <div class="col-md-8">
-    <div class="card card-user">
-      <div class="card-header">
-        <h5 class="card-title">Ajouter un commande</h5>
-      </div>
-      <div class="card-body">
-        <form [formGroup]="commercialForm" (submit)="ajouterCommande()">
-          <div class="row">
-            <div class="col-md-5 pr-1">
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" class="form-control" placeholder="Email" formControlName="Email" >
-              </div>
-            </div>
-           
-            <div class="col-md-4 pl-1">
-              <div class="form-group">
-                <label >Mot de passe</label>
-                <input type="password" class="form-control" placeholder="paswword"  formControlName="password">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 pr-1">
-              <div class="form-group">
-                <label>Prenom</label>
-                <input type="text" class="form-control" placeholder="Prenom"  formControlName="prenom">
-              </div>
-            </div>
-            <div class="col-md-6 pl-1">
-              <div class="form-group">
-                <label>Nom</label>
-                <input type="text" class="form-control" placeholder="Nom"  formControlName="nom">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 pr-1">
-              <div class="form-group">
-                <label>Telephone</label>
-                <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone">
-              </div>
-            </div>
-            <div class="col-md-4 pr-1">
-              <div class="form-group">
-                <label>CIN</label>
-                <input type="text" class="form-control" placeholder="CIN"  formControlName="cin">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            
-          </div>
-          <div class="row">
-            <div class="update ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary btn-round">Ajouter</button>
-            </div>
-          </div>
-        </form>
-      </div>
+<!-- add-order.component.html -->
+
+<div class="container mt-4">
+  <h2 class="mb-4">Ajouter Commande</h2>
+
+  <form>
+    <!-- Client Selection -->
+    <div class="form-group">
+      <label for="client">Choisir Client</label>
+      <select class="form-control" id="client" [(ngModel)]="newOrder.client" name="client">
+        <option *ngFor="let client of tabClients" [ngValue]="client">{{ client.name }}</option>
+      </select>
     </div>
-  </div>
+
+     <!-- Order Items Table -->
+     <table class="table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of newOrder.rows; let i = index">
+          <td>
+            <select class="form-control" [(ngModel)]="row.product" name="product{{i}}">
+              <option *ngFor="let product of tabProduits" [ngValue]="product">{{ product.name }}</option>
+            </select>
+          </td>
+          <td>
+            <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}">
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="removeRow(i)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add Row Button -->
+    <button type="button" class="btn btn-primary mb-3" (click)="addRow()">Ajouter Produit</button>
+
+
+    <br>
+    <!-- Submit Button -->
+    <button type="button" class="btn btn-success mt-3" (click)="ajouterCommande()">Envoyer</button>
+  </form>
 </div>

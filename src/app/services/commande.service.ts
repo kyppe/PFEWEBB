@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CommandeService {
   url = 'http://localhost:3000/Commandes';
+  url2 = 'http://localhost:3000/clients';
 
   constructor(private http: HttpClient) {}
 
@@ -17,8 +18,8 @@ export class CommandeService {
   getById(id: number): Observable<Commande> {
     return this.http.get<Commande>(this.url + '/' + id);
   }
-  addCommande(Commande: any): Observable<Commande> {
-    return this.http.post<Commande>(this.url, Commande);
+  addCommande(id:number,Commande: any): Observable<Commande> {
+    return this.http.put<Commande>(this.url2+"/addcommande/"+id, Commande);
   }
   deleteCommande(id: number):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
