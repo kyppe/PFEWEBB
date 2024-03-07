@@ -23,6 +23,7 @@
                 <th>Reference Produit</th>
                 <th>Intitulé Produit</th>
                 <th>Quantité</th>
+                <th>Prix</th>
               </tr>
             </thead>
             <tbody>
@@ -30,10 +31,21 @@
                 <td>{{ row.product.ref }}</td>
                 <td>{{ row.product.name }}</td>
                 <td>{{ row.qte }}</td>
+                <td>{{ row.price }}</td>
               </tr>
             </tbody>
           </table>
         </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <strong>Tarification</strong>
+    </div>
+      <div class="card-body">
+        <p class="card-text">TOTAL HT : {{commande.total}} </p>
       </div>
     </div>
   </div>

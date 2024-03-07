@@ -1,4 +1,5 @@
 import { Commande } from "./commande";
+import { Transaction } from "./transaction";
 
 export class Client {
   id:number;
@@ -8,19 +9,24 @@ export class Client {
   lastname: string;
   phone: string;
   actif:boolean;
-  cin:string;
+  mf:string;
   commande:Commande[];
+  transactions:Transaction[];
 
-  constructor(email: string, password: string, name: string, lastName: string, phone: string,id:number,cin:string,actif:boolean,commande:Commande[]) {
+  constructor(email: string, password: string, name: string, lastName: string, phone: string,id:number,mf:string,actif:boolean,commande:Commande[],transactions:Transaction[]) {
     this.email = email;
     this.password = password;
     this.name = name;
     this.lastname = lastName;
     this.phone = phone;
-    this.cin=cin;
+    this.mf=mf;
     this.actif=actif;
     this.id=id;
     this.commande=commande;
+    this.transactions=transactions;
   }
+
+
+
 }
   

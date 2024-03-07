@@ -9,10 +9,13 @@ export class Commande {
 
     rows:RowCommande[];
 
-    constructor(client:Client,rows:RowCommande[],id:number)
+    total:number;
+
+    constructor(client:Client,rows:RowCommande[],id:number,total:number)
     {
         this.client =client  ;
         this.rows=rows;
         this.id=id;
+        this.total=total;
     }
 }

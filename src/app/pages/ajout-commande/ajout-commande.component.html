@@ -18,18 +18,22 @@
         <tr>
           <th>Produit</th>
           <th>Quantité</th>
+          <th>Prix HT</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let row of newOrder.rows; let i = index">
           <td>
-            <select class="form-control" [(ngModel)]="row.product" name="product{{i}}">
-              <option *ngFor="let product of tabProduits" [ngValue]="product">{{ product.name }}</option>
+            <select class="form-control" [(ngModel)]="row.product" name="product{{i}}"  >
+              <option *ngFor="let product of tabProduits" [ngValue]="product" >{{ product.name }}</option>
             </select>
           </td>
           <td>
             <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}">
+          </td>
+          <td>
+            <p>{{row.product?.price}}</p>
           </td>
           <td>
             <button type="button" class="btn btn-danger" (click)="removeRow(i)">Supprimer</button>

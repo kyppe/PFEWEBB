@@ -15,22 +15,14 @@ export class AjoutClientComponent implements OnInit {
   constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute,private clientService:ClientService
     ) {
       this.clientForm=this.fb.group({
-        Email:[''],prenom:[''],nom:[""],telephone:[''],cin:['']
+        Email:[''],prenom:[''],nom:[""],telephone:[''],mf:['']
       })
      }
 
   ngOnInit(): void {
   }
 
-  generateRandomPassword(length: number): string {
-    const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let password = '';
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charset.length);
-      password += charset[randomIndex];
-    }
-    return password;
-  }
+  
 
 
   ajouterClient()
@@ -38,11 +30,10 @@ export class AjoutClientComponent implements OnInit {
 
     this.clientService.addClient({
       email:this.clientForm.value.Email,
-      password:this.generateRandomPassword(7),
       name:this.clientForm.value.prenom,
       lastname:this.clientForm.value.nom,
       phone:this.clientForm.value.telephone,
-      cin:this.clientForm.value.cin
+      mf:this.clientForm.value.mf
     }).subscribe(data=>{this.router.navigate(['/clients']);console.log(data)}
     )  
 

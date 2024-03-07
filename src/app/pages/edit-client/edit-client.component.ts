@@ -30,7 +30,7 @@ export class EditClientComponent implements OnInit {
         this.clientForm.get('prenom').setValue(this.aux.name);
         this.clientForm.get('nom').setValue(this.aux.lastname);
         this.clientForm.get('telephone').setValue(this.aux.phone);
-        this.clientForm.get('cin').setValue(this.aux.cin);
+        this.clientForm.get('cin').setValue(this.aux.mf);
         });
 
     });

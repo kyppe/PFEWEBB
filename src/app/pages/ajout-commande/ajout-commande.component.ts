@@ -19,9 +19,11 @@ export class AjoutCommandeComponent implements OnInit {
 
 
   tabClients!: Client[];
-  tabProduits!:Produit[]
+  tabProduits!:Produit[];
+  selectedProductPrice: number = 0;
 
-  newOrder: Commande = new Commande(null, [new RowCommande(null, null, null, null)],null); 
+
+  newOrder: Commande = new Commande(null,[new RowCommande(null, null, null, null)],null ,null); 
 
   
   constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private clientService: ClientService,private commandeService:CommandeService,private produitService:ProduitService
@@ -34,7 +36,12 @@ export class AjoutCommandeComponent implements OnInit {
     this.produitService.getAll().subscribe(data=>{this.tabProduits=data})
   }
 
+ setPriceHT(product:Produit)
 
+ {
+  this.selectedProductPrice=product.price;
+  
+ }
 
   ajouterCommande() {
 
