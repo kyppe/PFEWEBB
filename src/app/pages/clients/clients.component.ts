@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Client } from 'app/models/client';
 import { ClientService } from 'app/services/client.service';
 import { log } from 'console';
+import { io, Socket } from "socket.io-client";
 
 @Component({
     selector: 'clients-cmp',
@@ -16,6 +17,8 @@ export class ClientsComponent implements OnInit {
     tabClients!: Client[];
     searchText: string = '';
     filteredClients!:Client[];
+    SOCKET_SERVER_URL = "http://localhost:3000";
+    private socket: Socket;
 
 
     constructor(public clientService: ClientService,private router: Router) {
@@ -24,12 +27,22 @@ export class ClientsComponent implements OnInit {
 
 
      ngOnInit(): void {
+      this.socket = io(this.SOCKET_SERVER_URL, { transports: ["websocket"] });
+
         this.clientService.getAll().subscribe((clients: Client[]) => {
           this.tabClients = clients;
           this.filteredClients=this.tabClients
         });
+        this.socket.on("allcommaallclientsnde", (data) => {
+          console.log(data);
+          this.tabClients=data
+          this.filteredClients = this.tabClients;
+  
+        // Update the commandes when a new command is received
+  
+      });
       }
-
+   
       filterClients() {
         
         this.filteredClients=this.tabClients.filter(client => {
