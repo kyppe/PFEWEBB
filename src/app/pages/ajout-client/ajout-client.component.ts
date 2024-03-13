@@ -15,7 +15,7 @@ export class AjoutClientComponent implements OnInit {
   constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute,private clientService:ClientService
     ) {
       this.clientForm=this.fb.group({
-        Email:[''],prenom:[''],nom:[""],telephone:[''],mf:['']
+        Email:[''],nom:[""],telephone:[''],mf:['']
       })
      }
 
@@ -30,8 +30,7 @@ export class AjoutClientComponent implements OnInit {
 
     this.clientService.addClient({
       email:this.clientForm.value.Email,
-      name:this.clientForm.value.prenom,
-      lastname:this.clientForm.value.nom,
+      name:this.clientForm.value.nom,
       phone:this.clientForm.value.telephone,
       mf:this.clientForm.value.mf
     }).subscribe(data=>{this.router.navigate(['/clients']);console.log(data)}

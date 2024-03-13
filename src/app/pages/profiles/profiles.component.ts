@@ -37,11 +37,11 @@ export class ProfilesComponent implements OnInit {
   }
 
 
-  deleteProfile(intituleProfile:string)
+  deleteProfile(id:number)
   {
-    this.profileService.deleteProfile(intituleProfile).subscribe(data=>{
+    this.profileService.deleteProfile(id).subscribe(data=>{
       
-      this.filteredProfiles=this.filteredProfiles.filter(e=>e.intituleProfile!=intituleProfile);
+      this.filteredProfiles=this.filteredProfiles.filter(e=>e.id!=id);
       console.log(this.filteredProfiles);
       
     })
@@ -49,9 +49,27 @@ export class ProfilesComponent implements OnInit {
   }
 
 
-  updateProfile(intituleProfile: string) {
-    this.router.navigate(['/editProfile', intituleProfile]);
 
+  editProfile(cat: any) {
+    cat.editing = true; 
+    
+  }
+  
+  saveProfile(cat: any) {
+   
+    console.log(cat.intituleCategorie);
+
+    this.profileService.updateProfile(cat.id, cat)
+      .subscribe((data) => {
+        cat.editing = false; 
+      }
+      )
+  }
+
+
+  affecterClients(id:number)
+  {
+    this.router.navigate(['/affecterClients',id]);
   }
 
  

@@ -23,4 +23,10 @@ export class ProduitService {
   deleteproduit(ref: string) {
     return this.http.delete(this.url + '/'+ref);
   }
+  affecterCategorie(idProd,idCat:number):Observable<Produit>
+  {
+    return this.http.put<Produit>(this.url+'/affecterCategorie/'+idProd+'/'+idCat,{})
+  }
+
+
 }

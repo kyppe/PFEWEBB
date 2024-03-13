@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h1>Affecter Produits</h1>
+  
+
+    <div class="card mb-4">
+        <div class="card-header">
+          Categorie
+      </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Intitulé Categorie: </strong>  {{cat?.intituleCategorie}}</p>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="selectedProduits">Select Produits:</label>
+      <select multiple class="form-control" id="selectedProduits" [(ngModel)]="selectedProduits">
+        <option *ngFor="let pro of produits" [value]="pro.ref">{{pro.ref}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="saveMatching()">Envoyer</button>
+  </div>

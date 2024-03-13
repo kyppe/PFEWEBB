@@ -19,21 +19,32 @@
                 <th>
                   intituleCategorie
                 </th>
+
+                <th>Produits</th>
               
                 <th>
                   Actions
                 </th>
                
               </thead>
-              <tbody>
                 <tbody>
                   <tr *ngFor="let cat of filteredCategories">
                     <td (dblclick)="editCategory(cat)">
                       <span *ngIf="!cat.editing">{{cat.intituleCategorie}}</span>
                       <input *ngIf="cat.editing" type="text" [(ngModel)]="cat.intituleCategorie" (keyup.enter)="saveCategory(cat)">
                     </td>
-                
+
                     <td>
+                      <select class="form-control" >
+                        <option  *ngFor="let produit of cat.products" [value]="produit.ref">{{ produit.ref }}</option>
+                      </select>
+                    </td>
+    
+                    
+                    <td>
+
+                        <button class="btn btn-warning mr-1" (click)="affecterProduits(cat.id)">Affecter Produits</button>
+                  
                       <button class="btn btn-warning" (click)="deleteCategorie(cat.id)">Supprimer</button>
                     </td>
                   </tr>

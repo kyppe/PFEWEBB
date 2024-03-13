@@ -21,6 +21,8 @@ import { AjoutProfileComponent } from 'app/pages/ajout-profile/ajout-profile.com
 import { AjoutCategorieComponent } from 'app/pages/ajout-categorie/ajout-categorie.component';
 import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.component';
 import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.component';
+import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-clients.component';
+import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -44,6 +46,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'editCommande/:id', component: EditCommandeComponent },
     { path: 'detailCommande/:id', component: DetailCommandeComponent },
     { path: 'detailClient/:id', component: DetailClientComponent },
+    { path: 'affecterClients/:id', component: AffecterClientsComponent },
+    { path: 'affecterProduits/:id', component: AffecterProduitsComponent },
+
 
 
 

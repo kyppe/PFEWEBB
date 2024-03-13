@@ -40,11 +40,11 @@ export class CategoriesComponent implements OnInit {
   }
 
 
-  deleteCategorie(intituleCategorie:string)
+  deleteCategorie(id:number)
   {
-    this.categorieService.deleteCategorie(intituleCategorie).subscribe(data=>{
+    this.categorieService.deleteCategorie(id).subscribe(data=>{
       
-      this.filteredCategories=this.filteredCategories.filter(e=>e.intituleCategorie!=intituleCategorie);
+      this.filteredCategories=this.filteredCategories.filter(e=>e.id!=id);
       console.log(this.filteredCategories);
       
     })
@@ -67,6 +67,13 @@ export class CategoriesComponent implements OnInit {
       }
       )
   }
+
+
+  affecterProduits(id:number)
+  {
+    this.router.navigate(['/affecterProduits',id]);
+  }
+
 
  
 }

@@ -14,13 +14,13 @@ export class ProfileService {
   getAll(): Observable<Profile[]> {
     return this.http.get<Profile[]>(this.url);
   }
-  getById(id: string): Observable<Profile> {
+  getById(id: number): Observable<Profile> {
     return this.http.get<Profile>(this.url + '/' + id);
   }
   addProfile(Profile: any): Observable<Profile> {
     return this.http.post<Profile>(this.url, Profile);
   }
-  deleteProfile(id: string):Observable<any>  {
+  deleteProfile(id: number):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
   }
   updateProfile(id: string, Profile: any): Observable<any> {

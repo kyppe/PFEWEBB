@@ -18,7 +18,7 @@ export class EditClientComponent implements OnInit {
   constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private clientService: ClientService
   ) {
     this.clientForm = this.fb.group({
-      Email: [''], prenom: [''], nom: [""], telephone: [''], cin: ['']
+      Email: [''],  nom: [""], telephone: [''], cin: ['']
     })
   }
 
@@ -27,8 +27,7 @@ export class EditClientComponent implements OnInit {
       this.id = +params['id'];      // + convertit l id en string
       this.clientService.getById(this.id).subscribe(data => { this.aux = data; 
         this.clientForm.get('Email').setValue(this.aux.email);
-        this.clientForm.get('prenom').setValue(this.aux.name);
-        this.clientForm.get('nom').setValue(this.aux.lastname);
+        this.clientForm.get('nom').setValue(this.aux.name);
         this.clientForm.get('telephone').setValue(this.aux.phone);
         this.clientForm.get('cin').setValue(this.aux.mf);
         });

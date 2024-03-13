@@ -15,13 +15,13 @@ export class CategorieService {
   getAll(): Observable<Categorie[]> {
     return this.http.get<Categorie[]>(this.url);
   }
-  getById(id: string): Observable<Categorie> {
+  getById(id: number): Observable<Categorie> {
     return this.http.get<Categorie>(this.url + '/' + id);
   }
   addCategorie(Categorie: any): Observable<Categorie> {
     return this.http.post<Categorie>(this.url, Categorie);
   }
-  deleteCategorie(id: string):Observable<any>  {
+  deleteCategorie(id: number):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
   }
   updateCategorie(id: string, Categorie: any): Observable<any> {

@@ -23,7 +23,12 @@ import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-comman
 import { DetailClientComponent } from 'app/pages/detail-client/detail-client.component';
 import { ProfilesComponent } from 'app/pages/profiles/profiles.component';
 import { CategoriesComponent } from 'app/pages/categories/categories.component';
-
+import { AjoutCategorieComponent } from 'app/pages/ajout-categorie/ajout-categorie.component';
+import { AjoutProfileComponent } from 'app/pages/ajout-profile/ajout-profile.component';
+import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.component';
+import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.component';
+import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-clients.component';
+import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
 
 
 @NgModule({
@@ -52,6 +57,12 @@ import { CategoriesComponent } from 'app/pages/categories/categories.component';
     DetailClientComponent,
     ProfilesComponent,
     CategoriesComponent,
+    AjoutCategorieComponent,
+    AjoutProfileComponent,
+    EditProfileComponent,
+    EditCategorieComponent,
+    AffecterClientsComponent,
+    AffecterProduitsComponent,
 
     
 

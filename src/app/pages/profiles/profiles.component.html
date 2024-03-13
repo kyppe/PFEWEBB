@@ -20,6 +20,10 @@
                   Nom
                 </th>
 
+                <th>
+                  Clients
+                </th>
+
               
                 <th>
                   Actions
@@ -27,22 +31,24 @@
                
               </thead>
               <tbody>
-                <tr *ngFor="let prof of filteredProfiles">
-                  <td>
-                    {{prof.intituleProfile}}
-                  </td>
+              <tr *ngFor="let prof of filteredProfiles">
+                <td (dblclick)="editProfile(prof)">
+                  <span *ngIf="!prof.editing">{{prof.intituleProfile}}</span>
+                  <input *ngIf="prof.editing" type="text" [(ngModel)]="prof.intituleProfile" (keyup.enter)="saveProfile(prof)">
+                </td>
 
-  
-                  <td>
-                              
-                   <button class="btn btn-warning"  (click)="deleteProfile(prof.id)">Supprimer</button> 
-  
-                  </td>
-  
-                  
-                 
-                </tr>
-              </tbody>
+                <td>
+                  <select class="form-control" >
+                    <option  *ngFor="let client of prof.clients" [value]="client.id">{{ client.name }}</option>
+                  </select>
+                </td>
+
+                <td>
+                  <button class="btn btn-warning mr-1" (click)="affecterClients(prof.id)">Affecter clients</button>
+                  <button class="btn btn-warning" (click)="deleteProfile(prof.id)">Supprimer</button>
+                </td>
+              </tr>
+            </tbody>
             </table>
           </div>
         </div>

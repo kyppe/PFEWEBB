@@ -32,4 +32,10 @@ export class ClientService {
   {
     return this.http.put<Client>(this.url+'/actif/'+id,client)
   }
+
+  affecterProfile(idClie,idProf:number):Observable<Client>
+  {
+    return this.http.put<Client>(this.url+'/affecterProfile/'+idClie+'/'+idProf,{})
+
+  }
 }

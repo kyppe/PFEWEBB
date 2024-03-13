@@ -41,7 +41,7 @@ export class CommandesComponent implements OnInit {
 
   filterCommandes() {
     this.filteredCommandes = this.tabCommandes.filter((com) => {
-      return com.client.lastname
+      return com.client.name
         .toLowerCase()
         .includes(this.searchText.toLowerCase());
     });

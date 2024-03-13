@@ -1,0 +1,21 @@
+
+<div class="container">
+    <h1>Affecter Clients</h1>
+  
+
+    <div class="card mb-4">
+        <div class="card-header">
+          Profile
+      </div>
+        <div class="card-body">
+          <p class="card-text"><strong>Intitulé Profile: </strong>  {{prof?.intituleProfile}}</p>
+        </div>
+      </div>
+    <div class="form-group">
+      <label for="selectedClients">Select Clients:</label>
+      <select multiple class="form-control" id="selectedClients" [(ngModel)]="selectedClients">
+        <option *ngFor="let client of clients" [value]="client.id">{{client.name}}</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" (click)="saveMatching()">Envoyer</button>
+  </div>
