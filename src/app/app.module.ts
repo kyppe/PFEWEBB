@@ -16,6 +16,10 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from "./pages/login/login.component";
 
 import { HttpClientModule } from '@angular/common/http';
+import { AjoutCategorieComponent } from './pages/ajout-categorie/ajout-categorie.component';
+import { AjoutProfileComponent } from './pages/ajout-profile/ajout-profile.component';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { EditCategorieComponent } from './pages/edit-categorie/edit-categorie.component';
 
 
 
@@ -26,6 +30,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    AjoutCategorieComponent,
+    AjoutProfileComponent,
+    EditProfileComponent,
+    EditCategorieComponent,
+    
     
 
 

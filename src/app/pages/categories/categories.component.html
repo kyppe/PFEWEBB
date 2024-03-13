@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="input-group no-border">
+            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterCategories()" >
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <i class="nc-icon nc-zoom-split"></i>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-warning"><a href="/ajoutCategorie" style="color: white;">Ajouter une Categorie</a></button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  intituleCategorie
+                </th>
+              
+                <th>
+                  Actions
+                </th>
+               
+              </thead>
+              <tbody>
+                <tbody>
+                  <tr *ngFor="let cat of filteredCategories">
+                    <td (dblclick)="editCategory(cat)">
+                      <span *ngIf="!cat.editing">{{cat.intituleCategorie}}</span>
+                      <input *ngIf="cat.editing" type="text" [(ngModel)]="cat.intituleCategorie" (keyup.enter)="saveCategory(cat)">
+                    </td>
+                
+                    <td>
+                      <button class="btn btn-warning" (click)="deleteCategorie(cat.id)">Supprimer</button>
+                    </td>
+                  </tr>
+                </tbody>
+                
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+   

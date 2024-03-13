@@ -14,26 +14,40 @@ import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commerci
 import { EditCommandeComponent } from 'app/pages/edit-commande/edit-commande.component';
 import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-commande.component';
 import { DetailClientComponent } from 'app/pages/detail-client/detail-client.component';
+import { ProduitComponent } from 'app/pages/produit/produit.component';
+import { CategoriesComponent } from 'app/pages/categories/categories.component';
+import { ProfilesComponent } from 'app/pages/profiles/profiles.component';
+import { AjoutProfileComponent } from 'app/pages/ajout-profile/ajout-profile.component';
+import { AjoutCategorieComponent } from 'app/pages/ajout-categorie/ajout-categorie.component';
+import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.component';
+import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.component';
 
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard',      component: DashboardComponent },
-    { path: 'clients',        component: ClientsComponent },
-    { path: 'commerciaux',    component: CommerciauxComponent },
-    { path: 'commandes',      component: CommandesComponent },
-    { path: 'ajoutCommercial',component: AjoutCommercialComponent },
-    { path: 'ajoutCommande',  component: AjoutCommandeComponent },
-    { path: 'ajoutClient',  component: AjoutClientComponent },
-    { path: 'ajoutProduit',  component: AjoutProduitComponent },
-    { path: 'editProduit/:id',           component: EditProduitComponent },
-    { path: 'editClient/:id',           component: EditClientComponent },
-    { path: 'editCommercial/:id',           component: EditCommercialComponent },
-    { path: 'editCommande/:id',           component: EditCommandeComponent },
-    { path: 'detailCommande/:id',           component: DetailCommandeComponent },
-    { path: 'detailClient/:id',           component: DetailClientComponent },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'clients', component: ClientsComponent },
+    { path: 'commerciaux', component: CommerciauxComponent },
+    { path: 'commandes', component: CommandesComponent },
+    { path: 'produits', component: ProduitComponent },
+    { path: 'categories', component: CategoriesComponent },
+    { path: 'profiles', component: ProfilesComponent },
+    { path: 'ajoutProfile', component: AjoutProfileComponent },
+    { path: 'ajoutCategorie', component: AjoutCategorieComponent },
+    { path: 'ajoutCommercial', component: AjoutCommercialComponent },
+    { path: 'ajoutCommande', component: AjoutCommandeComponent },
+    { path: 'ajoutClient', component: AjoutClientComponent },
+    { path: 'ajoutProduit', component: AjoutProduitComponent },
+    { path: 'editProduit/:id', component: EditProduitComponent },
+    { path: 'editCategorie/:intit', component: EditCategorieComponent },
+    { path: 'editProfile/:intit', component: EditProfileComponent },
+    { path: 'editClient/:id', component: EditClientComponent },
+    { path: 'editCommercial/:id', component: EditCommercialComponent },
+    { path: 'editCommande/:id', component: EditCommandeComponent },
+    { path: 'detailCommande/:id', component: DetailCommandeComponent },
+    { path: 'detailClient/:id', component: DetailClientComponent },
 
 
 
 
-    
+
 
 ];

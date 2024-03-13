@@ -39,7 +39,6 @@ export class EditCommandeComponent implements OnInit {
       this.commandeService.getById(this.id).subscribe(data => { this.newOrder = data;         
       })
     })
-    this.clientService.getAll().subscribe(data => { this.tabClients = data; })
     this.produitService.getAll().subscribe(data => { this.tabProduits = data })
 
     

@@ -21,6 +21,9 @@ import { EditCommercialComponent } from 'app/pages/edit-commercial/edit-commerci
 import { ProduitComponent } from 'app/pages/produit/produit.component';
 import { DetailCommandeComponent } from 'app/pages/detail-commande/detail-commande.component';
 import { DetailClientComponent } from 'app/pages/detail-client/detail-client.component';
+import { ProfilesComponent } from 'app/pages/profiles/profiles.component';
+import { CategoriesComponent } from 'app/pages/categories/categories.component';
+
 
 
 @NgModule({
@@ -46,7 +49,9 @@ import { DetailClientComponent } from 'app/pages/detail-client/detail-client.com
     EditCommandeComponent,
     EditCommercialComponent,
     DetailCommandeComponent,
-    DetailClientComponent
+    DetailClientComponent,
+    ProfilesComponent,
+    CategoriesComponent,
 
     
 

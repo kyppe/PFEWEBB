@@ -3,51 +3,44 @@
       <div class="card">
         <div class="card-header">
           <div class="input-group no-border">
-            <input type="text" value="" class="form-control" placeholder="Search...">
+            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterProfiles()" >
             <div class="input-group-append">
               <div class="input-group-text">
                 <i class="nc-icon nc-zoom-split"></i>
               </div>
             </div>
           </div>
-          <!-- <button type="button" class="btn btn-warning"><a href="/ajoutProduit" style="color: white;">Ajouter un Produit</a></button> -->
+          <button type="button" class="btn btn-warning"><a href="/ajoutProfile" style="color: white;">Ajouter un Profile</a></button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Ref
+                  Nom
                 </th>
+
+              
                 <th>
-                  desc
+                  Actions
                 </th>
-                <th>
-                  Code Famille
-                </th>
-  
-                <th>
-                  Prix
-                </th>
-         
                
               </thead>
               <tbody>
-                <tr *ngFor="let prod of tabProduits">
+                <tr *ngFor="let prof of filteredProfiles">
                   <td>
-                    {{prod.ref}}
-                  </td>
-                  <td>
-                    {{prod.desc}}
-                  </td>
-                  <td>
-                    {{prod.codeFamille}}
-                  </td>
-  
-                  <td>
-                    {{prod.price}}
+                    {{prof.intituleProfile}}
                   </td>
 
+  
+                  <td>
+                              
+                   <button class="btn btn-warning"  (click)="deleteProfile(prof.id)">Supprimer</button> 
+  
+                  </td>
+  
+                  
+                 
                 </tr>
               </tbody>
             </table>

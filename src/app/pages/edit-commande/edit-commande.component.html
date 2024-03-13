@@ -10,7 +10,7 @@
           Client
       </div>
         <div class="card-body">
-          <p class="card-text"><strong>Nom,Prenom:</strong>  {{newOrder.client.lastname}} {{ newOrder.client.name }}</p>
+          <p class="card-text"><strong>Nom,Prenom:</strong>  {{newOrder?.client?.lastname}} {{ newOrder?.client?.name }}</p>
         </div>
       </div>
       
@@ -25,10 +25,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of newOrder.rows; let i = index">
+          <tr *ngFor="let row of newOrder?.rows; let i = index">
             <td>
               <select class="form-control"  (change)="onProductChange($event.target.value, i)" >
-                <option *ngFor="let product of tabProduits" [selected]="row.product.name==product.name" [ngValue]="product" >{{ product.ref }}</option>
+                <option *ngFor="let product of tabProduits" [selected]="row?.product.name==product.name" [ngValue]="product" >{{ product.ref }}</option>
               </select>
             </td>
             <td>
