@@ -26,7 +26,7 @@
         <tr *ngFor="let row of newOrder.rows; let i = index">
           <td>
             <select class="form-control" [(ngModel)]="row.product" name="product{{i}}"  >
-              <option *ngFor="let product of tabProduits" [ngValue]="product" >{{ product.name }}</option>
+              <option *ngFor="let product of tabProduits" [ngValue]="product" >{{ product.ref }}</option>
             </select>
           </td>
           <td>

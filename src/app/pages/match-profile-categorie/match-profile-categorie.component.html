@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <button type="button" class="btn btn-warning"><a href="/ajoutMatchProfileCategories"
+                        style="color: white;">Ajouter un MatchProfileCategorie</a></button>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class=" text-primary">
+
+                            <th>
+                                Profile
+                            </th>
+                            <th>
+                                Categorie
+                            </th>
+
+                            <th>
+                                Remise
+                            </th>
+
+
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mpc of filteredMatchProfileCategories">
+
+                                <td>
+                                    {{mpc?.profile.intituleProfile}}
+                                </td>
+                                <td>
+                                    {{mpc?.categorie.intituleCategorie}}
+                                </td>
+
+                                <td> {{mpc?.remise}}
+                                </td>
+
+
+                                <td>
+
+                                    <button class="btn btn-warning"
+                                        (click)="deleteMatchProfileCategorie(mpc.id)">Supprimer</button>
+
+                                </td>
+
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
