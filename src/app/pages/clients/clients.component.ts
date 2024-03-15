@@ -33,7 +33,7 @@ export class ClientsComponent implements OnInit {
           this.tabClients = clients;
           this.filteredClients=this.tabClients
         });
-        this.socket.on("allcommaallclientsnde", (data) => {
+        this.socket.on("allclients", (data) => {
           console.log(data);
           this.tabClients=data
           this.filteredClients = this.tabClients;

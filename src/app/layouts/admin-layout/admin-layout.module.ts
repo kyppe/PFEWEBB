@@ -29,6 +29,7 @@ import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.compon
 import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.component';
 import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-clients.component';
 import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
+import { LoginComponent } from 'app/pages/login/login.component';
 
 
 @NgModule({
@@ -63,6 +64,7 @@ import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-
     EditCategorieComponent,
     AffecterClientsComponent,
     AffecterProduitsComponent,
+    LoginComponent
 
     
 
