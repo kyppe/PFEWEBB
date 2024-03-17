@@ -12,6 +12,11 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
+  login(email:string,password:string):Observable<any>
+  {
+    return this.http.post(this.url+"/login",{"email":email,"password":password})
+  }
+
   getAll(): Observable<Client[]> {
     
     return this.http.get<Client[]>(this.url);

@@ -15,7 +15,9 @@ import { AppRoutes } from './app.routing';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from "./pages/login/login.component";
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { MyInterceptorService } from "./services/my-interceptor.service";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 
@@ -26,8 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent,
-   
+    LoginComponent
   
    
     
@@ -43,9 +44,17 @@ import { HttpClientModule } from '@angular/common/http';
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers:  [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

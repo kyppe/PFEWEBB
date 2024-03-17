@@ -29,9 +29,7 @@ import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.compon
 import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.component';
 import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-clients.component';
 import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
-import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
 import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-categorie/add-match-profile-categorie.component';
-
 
 
 @NgModule({
@@ -66,8 +64,7 @@ import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-c
     EditCategorieComponent,
     AffecterClientsComponent,
     AffecterProduitsComponent,
-    MatchProfileCategorieComponent,
-    AddMatchProfileCategorieComponent,
+    AddMatchProfileCategorieComponent
 
     
 
