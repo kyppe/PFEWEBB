@@ -24,20 +24,14 @@ export class MatchProfileCategorieComponent implements OnInit {
 
       this.matchProfileCategorieService.getAll().subscribe((MatchProfileCategories: MatchProfileCategorie[]) => {
         this.tabMatchProfileCategories = MatchProfileCategories;
-        this.filteredMatchProfileCategories=this.tabMatchProfileCategories
+        this.filteredMatchProfileCategories=this.tabMatchProfileCategories;
+        console.log(this.tabMatchProfileCategories);
+        
       });
    
     }
  
-    filterMatchProfileCategories() {
-      
-      this.filteredMatchProfileCategories=this.tabMatchProfileCategories.filter(MatchProfileCategorie => {
-         return MatchProfileCategorie.profile.intituleProfile.toLowerCase().includes(this.searchText.toLowerCase());
-         
-      });
-
-      console.log(this.filteredMatchProfileCategories);
-    }
+    
 
 
     deleteMatchProfileCategorie(id:number)
