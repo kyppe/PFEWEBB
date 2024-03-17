@@ -1,0 +1,24 @@
+<form (ngSubmit)="submitForm()" class="p-3">
+
+  <div class="mb-3">
+    <label for="profile" class="form-label">Profile:</label>
+    <select id="profile" name="profile" [(ngModel)]="newMatchProfileCategorie.profile" class="form-select" required>
+      <option *ngFor="let profile of profiles" [ngValue]="profile">{{ profile.intituleProfile }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="categorie" class="form-label">Categorie:</label>
+    <select id="categorie" name="categorie" [(ngModel)]="newMatchProfileCategorie.categorie" class="form-select" required>
+      <option *ngFor="let categorie of categories" [ngValue]="categorie">{{ categorie.intituleCategorie }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="remise" class="form-label">Remise:</label>
+    <input type="number" id="remise" name="remise" [(ngModel)]="newMatchProfileCategorie.remise" class="form-control" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add</button>
+
+</form>

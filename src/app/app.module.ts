@@ -28,7 +28,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
+    LoginComponent
   
    
     

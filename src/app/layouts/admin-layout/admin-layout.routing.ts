@@ -23,6 +23,8 @@ import { EditCategorieComponent } from 'app/pages/edit-categorie/edit-categorie.
 import { EditProfileComponent } from 'app/pages/edit-profile/edit-profile.component';
 import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-clients.component';
 import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
+import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-categorie/add-match-profile-categorie.component';
+import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -48,6 +50,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'detailClient/:id', component: DetailClientComponent },
     { path: 'affecterClients/:id', component: AffecterClientsComponent },
     { path: 'affecterProduits/:id', component: AffecterProduitsComponent },
+    { path: 'matchProfileCategories', component: MatchProfileCategorieComponent },
+    { path: 'ajoutMatchProfileCategories', component: AddMatchProfileCategorieComponent },
+
 
 
 
