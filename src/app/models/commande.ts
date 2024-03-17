@@ -8,10 +8,10 @@ export class Commande {
     client:Client;
 
     rows:RowCommande[];
-
+    etat:string
     total:number;
 
-    constructor(client:Client,rows:RowCommande[],id:number,total:number)
+    constructor(client:Client,rows:RowCommande[],id:number,total:number,)
     {
         this.client =client  ;
         this.rows=rows;

@@ -42,7 +42,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     RouterModule.forRoot(AppRoutes),
     SidebarModule,
     NavbarModule,
-    ToastrModule.forRoot(),
     FooterModule,
     FixedPluginModule,
     ReactiveFormsModule,

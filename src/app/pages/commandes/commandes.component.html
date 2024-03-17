@@ -3,52 +3,59 @@
     <div class="card">
       <div class="card-header">
         <div class="input-group no-border">
-          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..." (input)="filterCommandes()">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            class="form-control"
+            placeholder="Search..."
+            (input)="filterCommandes()"
+          />
           <div class="input-group-append">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-info"><a href="/ajoutCommande" style="color: white;">Ajouter une
-            commande</a></button>
+        <button type="button" class="btn btn-info">
+          <a href="/ajoutCommande" style="color: white">Ajouter une commande</a>
+        </button>
+        <select class="form-select mr-1" [(ngModel)]="selectedOption">
+          <option value="a">Option A</option>
+          <option value="b">Option B</option>
+          <option value="c">Option C</option>
+        </select>
+        <button class="btn btn-primary mr-1" (click)="save()">Change de etat</button>
       </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table">
-            <thead class=" text-primary">
-              <th>
-                id
-              </th>
-              <th>
-                Client
-              </th>
-
-              <th>
-                Actions
-              </th>
-
+            <thead class="text-primary">
+              <th>id</th>
+              <th>Client</th>
+              <th>Actions</th>
+              <th>etat</th>
+              <th>select</th>
             </thead>
             <tbody>
-              <tr *ngFor="let com of filteredCommandes">
+              <tr *ngFor="let com of filteredCommandes; index as index">
+                <td>{{ com.id }}</td>
+                <td>{{ com.client.name }} {{ com.client.lastname }}</td>
                 <td>
-                  {{ com.id }} </td>
-                <td>
-                  {{com.client.name}}  {{com.client.lastname}}
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="toDetailPage(com.id)">
+                    Voir détails
+                  </button>
+                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="updateCommande(com.id)">
+                    Mettre à jour
+                  </button>
+                  <button type="button" class="btn btn-sm btn-info" (click)="deleteCommande(com.id)">
+                    Supprimer
+                  </button>
                 </td>
-            
+                <td>{{com.etat}}</td>
                 <td>
-                  <Button type="button" class="btn btn-info btn-sm mr-1" (click)="toDetailPage(com.id)">Voir détails</Button>
-
-
-                  <Button type="button" class="btn btn-sm btn-info mr-1" (click)="updateCommande(com.id)">Mettre à jour</Button>
-
-                  <button type="button" class="btn btn-sm btn-info" (click)="deleteCommande(com.id)">Supprimer</button>
-
+                  <input type="checkbox" (click)="change(index)" />
+                  {{ checkList[index] }}
                 </td>
-
-
-
               </tr>
             </tbody>
           </table>
@@ -56,3 +63,4 @@
       </div>
     </div>
   </div>
+</div>

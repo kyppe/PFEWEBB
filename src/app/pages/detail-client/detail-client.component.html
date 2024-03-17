@@ -1,35 +1,59 @@
-<div class="container">
-    <div class="row mt-5">
-      <div class="col-md-6 offset-md-3">
-        <div class="card">
-          <div class="card-header">
-            Details Client
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <label>Email:</label>
-              <p>{{ client.email }}</p>
-            </div>
-            <div class="form-group">
-              <label>Nom:</label>
-              <p>{{ client.name }}</p>
-            </div>
-            <div class="form-group">
-              <label>Telephone:</label>
-              <p>{{ client.phone }}</p>
-            </div>
-            <div class="form-group">
-              <label>MF/CIN:</label>
-              <p>{{ client.mf }}</p>
-            </div>
-            <div class="form-group">
-              <label>Active:</label>
-              <p>{{ client.actif ? 'Oui' : 'Non' }}      <button type="button"   (click)="ActiverCompte()" class="btn btn-info btn-sm" *ngIf="!client.actif">Activer compte</button></p>
-          
-            </div>
-          </div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div style="margin: 5%; font-size: 20px">
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">Name: </label>
+          <span>{{ client.name }}</span>
         </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">Email: </label>
+          <span>{{ client.email }}</span>
+        </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">Telephone: </label>
+          <span> {{ client.phone }}</span>
+        </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">MF/CIN: </label>
+          <span> {{ client.mf }}</span>
+        </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">credit: </label>
+          <span *ngIf="sum > 0" style="color: green"> {{ sum }}</span>
+          <span *ngIf="sum < 0" style="color: red"> {{ sum }}</span>
+        </div>
+      </div>
+
+      <!-- Table to display list of clients -->
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="text-primary">
+            <tr>
+              <th>id</th>
+              <th>libelle</th>
+              <th>echance</th>
+              <th>credit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tra of client.transactions; index as i">
+              <td>{{ tra.id }}</td>
+              <td>{{ tra.libelle }}</td>
+              <td>{{ tra.echance }}</td>
+              <td>
+                <span *ngIf="tra.typeTra == 1" style="color: green">{{
+                  tra.credit
+                }}</span
+                ><span *ngIf="tra.typeTra == 0" style="color: red"
+                  >-{{ tra.credit }}</span
+                >
+              </td>
+         
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  
+</div>

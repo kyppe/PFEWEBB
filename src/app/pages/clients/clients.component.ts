@@ -76,5 +76,16 @@ export class ClientsComponent implements OnInit {
         this.router.navigate(['/detailClient', id]);
 
       }
+      ActiverCompte(i:any,client:Client) {
+        console.log(client);
+        
+        this.clientService.activateClient(client.id,client).subscribe(data=>{
+          
+          client=data
+          this.tabClients[i]=data
+          console.log(client);
+
+        })
+      }
 
 }

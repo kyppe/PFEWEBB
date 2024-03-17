@@ -1,0 +1,21 @@
+.card-body {
+    text-align: center; // Center aligning content
+  
+    .table {
+      width: 100%; // Full width table
+  
+      th,
+      td {
+        text-align: center; // Center aligning table cells
+      }
+    }
+  }
+  // Assuming your component's SCSS file is named styles.scss
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}

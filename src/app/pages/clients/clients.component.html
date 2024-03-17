@@ -28,13 +28,13 @@
                 Phone
               </th>
             
-              <th>
+              <th style="text-align: center;">
                 Actions
               </th>
              
             </thead>
             <tbody>
-              <tr *ngFor="let cli of filteredClients">
+              <tr *ngFor="let cli of filteredClients index as i ">
           
                 <td>
                   {{cli.name}}
@@ -47,17 +47,17 @@
                   {{cli.phone}}
                 </td>
 
-                <td>
+                <td style="text-align: center;">
                   
-                  <button class="btn btn-warning  mr-1"  (click)="detailsClient(cli.id)">Voir détails</button> 
+                  <button class="btn btn-info  mr-1"  (click)="detailsClient(cli.id)">Voir détails</button> 
 
                   <Button type="button" class="btn btn-warning mr-1" (click)="updateClient(cli.id)">Mettre à jour</Button>      
                             
-                 <button class="btn btn-warning"  (click)="deleteClient(cli.id)">Supprimer</button> 
-
-                </td>
+                 <button class="btn btn-danger mr-1"  (click)="deleteClient(cli.id)">Supprimer</button> 
 
                 
+                <button type="button"   (click)="ActiverCompte(i,cli)" class="btn btn-success mr-1" *ngIf="cli.actif==false">Activer compte</button>
+              </td>
                
               </tr>
             </tbody>
