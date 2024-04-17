@@ -17,8 +17,6 @@ export class DetailClientComponent implements OnInit {
   tabClients!: Client[];
     searchText: string = '';
     filteredClients!:Client[];
-    SOCKET_SERVER_URL = "http://localhost:3000";
-    private socket: Socket;
   sum:number=0
   constructor(private activatedRoute: ActivatedRoute, private clientService: ClientService) { }
 

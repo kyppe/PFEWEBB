@@ -18,6 +18,10 @@ import { LoginComponent } from "./pages/login/login.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MyInterceptorService } from "./services/my-interceptor.service";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MapsComponent } from './pages/maps/maps.component';
+import { MapProductComponent } from './pages/map-product/map-product.component';
+import { MapClientComponent } from './pages/map-client/map-client.component';
+import { MapTransactionComponent } from './pages/map-transaction/map-transaction.component';
 
 
 
@@ -28,7 +32,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    MapsComponent,
+    MapProductComponent,
+    MapClientComponent,
+    MapTransactionComponent
   
    
     

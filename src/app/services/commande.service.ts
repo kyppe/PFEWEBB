@@ -27,4 +27,8 @@ export class CommandeService {
   updateCommande(id: number, Commande: any): Observable<Commande> {
     return this.http.put<Commande>(this.url+'/'+id, Commande);
   }
+  updateEtateCommande(data:any,etat:any):Observable<any>
+  {
+    return this.http.put<any>(this.url+"/etat/"+etat,data)
+  }
 }

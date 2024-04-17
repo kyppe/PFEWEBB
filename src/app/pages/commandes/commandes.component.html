@@ -10,19 +10,21 @@
             placeholder="Search..."
             (input)="filterCommandes()"
           />
-          <div class="input-group-append">
+          <div class="input-group-append mr-1">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-info">
+        <button type="button" class="btn btn-info mr-1">
           <a href="/ajoutCommande" style="color: white">Ajouter une commande</a>
         </button>
         <select class="form-select mr-1" [(ngModel)]="selectedOption">
-          <option value="a">Option A</option>
-          <option value="b">Option B</option>
-          <option value="c">Option C</option>
+          <option value="non examiné	">non examiné	</option>
+          <option value="Encours" selected>Encours</option>
+          <option value="prêt">prêt </option>
+          <option value="livraison">livraison </option>
+
         </select>
         <button class="btn btn-primary mr-1" (click)="save()">Change de etat</button>
       </div>
@@ -47,14 +49,14 @@
                   <button type="button" class="btn btn-sm btn-info mr-1" (click)="updateCommande(com.id)">
                     Mettre à jour
                   </button>
-                  <button type="button" class="btn btn-sm btn-info" (click)="deleteCommande(com.id)">
+                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="deleteCommande(com.id)">
                     Supprimer
                   </button>
+                  <button class="btn btn-sm btn-info mr-1" (click)="printReservation(com)">export</button>
                 </td>
                 <td>{{com.etat}}</td>
                 <td>
                   <input type="checkbox" (click)="change(index)" />
-                  {{ checkList[index] }}
                 </td>
               </tr>
             </tbody>

@@ -1,0 +1,88 @@
+<div class="card-header">
+    <p *ngIf="listgroupby.length > 0">
+        Voici la liste des tables auxquelles le système a accédé via les clés étrangères <span style="color: darkgoldenrod;">{{ listgroupby.join(', ') }}</span>
+        <br>
+      </p>
+      <p>
+        donnez-moi tous les fichiers liés au <span style="color: green;"> produit.</span>
+      </p>
+    <div style="position: relative;" class="input-group no-border">
+      <div >
+        <!-- Added class for spacing -->
+        <label for="fileInput" class="custom-file-upload">
+          <input
+            id="fileInput"
+            type="file"
+            (change)="onFileSelected($event)"
+            accept=".csv,.sql"
+          />
+          Choisissez un fichier
+        </label>
+
+        <button
+        *ngIf="testshow"
+        class="btn btn-warning"
+        style="color: white;margin: 20px;"
+          (click)="save()"
+        >
+        enregistrer des nouveau données 
+        </button>
+     
+        <button
+        *ngIf="testshow"
+        class="btn btn-warning"
+        style="color: white;margin: 20px;"
+          (click)="nextFile()"
+        >
+        miss a jour des nouveau données 
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table *ngIf="testshow" class="table">
+          <thead class="text-primary">
+            <tr>
+              <td
+                style="text-align: center"
+                *ngFor="let row of this.dataTable.columns; index as index"
+              >
+                <select class="form-select" aria-label="Default select example"
+                  *ngIf="this.checkBoxs[index] == false"
+                  [(ngModel)]="selects[index]"
+                >
+                  <option *ngFor="let att of listatt">{{ att }}</option>
+                </select>
+
+                <input
+                  type="checkbox"
+                  *ngIf="this.checkBoxs[index]"
+                  [(ngModel)]="checkBoxsValues[index]"
+                />
+              </td>
+            </tr>
+            <tr>
+              <th
+                style="text-align: center"
+                *ngFor="let header of dataTable.columns"
+              >
+                {{ header }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of dataTable.values">
+              <td
+                style="text-align: center"
+                *ngFor="let cell of dataTable.columns"
+              >
+                {{ row[cell] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

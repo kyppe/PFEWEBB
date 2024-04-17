@@ -41,6 +41,7 @@ export class ClientsComponent implements OnInit {
         // Update the commandes when a new command is received
   
       });
+
       }
    
       filterClients() {

@@ -7,6 +7,7 @@ export class RowCommande {
     commande:Commande;
     product:Produit;
     qte:Number;
+    price:Number
 
     constructor(commande:Commande,product:Produit,qte:Number,id:number)
     {
