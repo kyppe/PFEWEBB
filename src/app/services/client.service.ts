@@ -43,5 +43,7 @@ export class ClientService {
     return this.http.put<Client>(this.url+'/affecterProfile/'+idClie+'/'+idProf,{})
 
   }
-
+  getAttributes(): Observable<String[]> {
+    return this.http.get<String[]>(this.url+"/attributes");
+  }
 }

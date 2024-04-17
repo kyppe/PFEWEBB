@@ -17,7 +17,12 @@ export class MapsService {
   getAttribProduct(): Observable<any> {
     return this.http.get<any>(this.url+"/attributes/product");
   }
-
+  getAttribClient(): Observable<any> {
+    return this.http.get<any>(this.url+"/attributes/client");
+  }
+  getAttribAdress(): Observable<any> {
+    return this.http.get<any>(this.url+"/attributes/adress");
+  }
   getAttribTransaction(): Observable<any> {
     return this.http.get<any>(this.url+"/attributes/transaction");
   }
@@ -42,5 +47,25 @@ export class MapsService {
   addTransaction(data: any):Observable<any>
   {
     return this.http.post<any>(this.url+"/addTransaction", data);  
+  }
+
+  addClient(data: any):Observable<any>{
+    return this.http.post<any>(this.url+"/addClient", data);
+
+  }
+
+  updateClient(data:any):Observable<any>
+  {
+    return this.http.put<any>(this.url+"/updateClient", data);
+  }
+
+  addAdress(data: any):Observable<any>{
+    return this.http.post<any>(this.url+"/addAdress", data);
+
+  }
+
+  updateAdress(data:any):Observable<any>
+  {
+    return this.http.put<any>(this.url+"/updateAdress", data);
   }
 }

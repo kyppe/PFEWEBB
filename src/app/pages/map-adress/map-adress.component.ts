@@ -1,19 +1,22 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Maps } from "app/models/maps";
+import { AdresseService } from "app/services/adresse.service";
+import { ClientService } from "app/services/client.service";
 import { MapsService } from "app/services/maps.service";
-
+import { ProduitService } from "app/services/produit.service";
 @Component({
-  selector: 'app-map-transaction',
-  templateUrl: './map-transaction.component.html',
-  styleUrls: ['./map-transaction.component.scss']
+  selector: 'app-map-adress',
+  templateUrl: './map-adress.component.html',
+  styleUrls: ['./map-adress.component.scss']
 })
-export class MapTransactionComponent implements OnInit {
+export class MapAdressComponent implements OnInit {
 
-  formRegl!: FormGroup;
+ 
+  fromLogin!: FormGroup;
   selectedFileType: any;
   tablenumber = 0;
-  listatt: string[] = [];
+  listatt: String[] = [];
   checkBoxs: boolean[] = [];
   checkBoxsValues: boolean[] = [];
   listTables: string[] = ["produit", "transaction", "clinets"];
@@ -24,21 +27,20 @@ export class MapTransactionComponent implements OnInit {
   savedTransaction = false;
   savedClinets = false;
 
-  constructor(public fb: FormBuilder, public server: MapsService) {}
+  constructor(public fb: FormBuilder, public server: MapsService,public serviceadress:AdresseService) {}
   dataTable: Maps;
   ngOnInit(): void {
-    this.formRegl = this.fb.group({
-      negatif: [""],
-      positif: [""],
-    });
-    this.server.getAttribTransaction().subscribe((data) => {
-      this.listatt = data;
-    });
+
     this.server.getTableRef().subscribe((data) => {
       this.listgroupby = data;
-      this.listatt.push("")
+      console.log(this.listgroupby);
     });
-
+    this.serviceadress.getAttributes().subscribe(data => {
+      console.log(data);
+      
+      this.listatt =data
+      this.listatt.push("")
+    })
   }
 
   tableHeaders: string[] = [];
@@ -107,13 +109,12 @@ export class MapTransactionComponent implements OnInit {
     console.log(l);
     console.log(this.dataTable);
     this.server
-      .addTransaction({ data: this.dataTable, map: l,positif:this.formRegl.value["positif"],negatif:this.formRegl.value["negatif"] })
+      .addAdress({ data: this.dataTable, map: l })
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;
       });
   }
-
   nextFile() {
     let l = [];
     for (let i = 0; i < this.selects.length; i++) {
@@ -127,12 +128,13 @@ export class MapTransactionComponent implements OnInit {
     console.log(l);
     console.log(this.dataTable);
     this.server
-      .updateTransaction({ data: this.dataTable, map: l })
+      .updateAdress({ data: this.dataTable, map: l })
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;
       });
   }
+
   nextPage() {
     this.tablenumber++;
   }

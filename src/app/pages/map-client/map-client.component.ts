@@ -1,7 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Maps } from "app/models/maps";
+import { ClientService } from "app/services/client.service";
 import { MapsService } from "app/services/maps.service";
+import { ProduitService } from "app/services/produit.service";
 
 @Component({
   selector: 'app-map-client',
@@ -13,7 +15,7 @@ export class MapClientComponent implements OnInit {
   fromLogin!: FormGroup;
   selectedFileType: any;
   tablenumber = 0;
-  listatt: string[] = [];
+  listatt: String[] = [];
   checkBoxs: boolean[] = [];
   checkBoxsValues: boolean[] = [];
   listTables: string[] = ["produit", "transaction", "clinets"];
@@ -24,21 +26,20 @@ export class MapClientComponent implements OnInit {
   savedTransaction = false;
   savedClinets = false;
 
-  constructor(public fb: FormBuilder, public server: MapsService) {}
+  constructor(public fb: FormBuilder, public server: MapsService,public serviceclient:ClientService) {}
   dataTable: Maps;
   ngOnInit(): void {
-    this.fromLogin = this.fb.group({
-      login: [""],
-      password: [""],
-    });
-    this.server.getAttribProduct().subscribe((data) => {
-      this.listatt = data;
-    });
+
     this.server.getTableRef().subscribe((data) => {
       this.listgroupby = data;
       console.log(this.listgroupby);
     });
-
+    this.serviceclient.getAttributes().subscribe(data => {
+      console.log(data);
+      
+      this.listatt =data
+      this.listatt.push("")
+    })
   }
 
   tableHeaders: string[] = [];
@@ -107,7 +108,7 @@ export class MapClientComponent implements OnInit {
     console.log(l);
     console.log(this.dataTable);
     this.server
-      .addProduct({ data: this.dataTable, map: l })
+      .addClient({ data: this.dataTable, map: l })
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;
@@ -126,7 +127,7 @@ export class MapClientComponent implements OnInit {
     console.log(l);
     console.log(this.dataTable);
     this.server
-      .updateProduct({ data: this.dataTable, map: l })
+      .updateClient({ data: this.dataTable, map: l })
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;

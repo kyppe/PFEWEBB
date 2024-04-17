@@ -37,6 +37,7 @@ export class MapProductComponent implements OnInit {
     this.server.getTableRef().subscribe((data) => {
       this.listgroupby = data;
       console.log(this.listgroupby);
+      this.listatt.push("")
     });
 
   }

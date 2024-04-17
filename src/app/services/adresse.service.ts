@@ -24,4 +24,7 @@ export class AdresseService {
   deleteAdresse(adresse: Adresse) {
     return this.http.delete(this.url + '/'+adresse.id);
   }
+  getAttributes(): Observable<String[]> {
+    return this.http.get<String[]>(this.url+"/attributes");
+  }
 }

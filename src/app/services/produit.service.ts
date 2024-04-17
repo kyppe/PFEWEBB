@@ -27,6 +27,8 @@ export class ProduitService {
   {
     return this.http.put<Produit>(this.url+'/affecterCategorie/'+idProd+'/'+idCat,{})
   }
-
+  getAttributes(): Observable<String[]> {
+    return this.http.get<String[]>(this.url+"/attributes");
+  }
 
 }
