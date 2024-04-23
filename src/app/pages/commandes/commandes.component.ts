@@ -4,6 +4,8 @@ import { Commande } from "app/models/commande";
 import { CommandeService } from "app/services/commande.service";
 import { io, Socket } from "socket.io-client";
 import * as html2pdf from "html2pdf.js";
+import { MatchProfileCategorieService } from "app/services/match-profile-categorie.service";
+import { MatchProfileCategorie } from "app/models/match-profile-categorie";
 
 @Component({
   selector: "commandes-cmp",
@@ -19,11 +21,13 @@ export class CommandesComponent implements OnInit {
   checkList: boolean[] = [];
   selectedItems: any[] = [];
   private socket: Socket;
+  tabMatch!: MatchProfileCategorie[];
 
   constructor(
     public commandeService: CommandeService,
-    private router: Router
-  ) {}
+    private router: Router,
+    public matchProfCatService: MatchProfileCategorieService
+  ) { }
 
   ngOnInit(): void {
     this.socket = io(this.SOCKET_SERVER_URL, { transports: ["websocket"] });
@@ -39,6 +43,11 @@ export class CommandesComponent implements OnInit {
       this.filteredCommandes = this.tabCommandes;
       this.checkList = Array(this.filteredCommandes.length).fill(false);
     });
+
+    this.matchProfCatService.getAll().subscribe(data => {
+      this.tabMatch = data;
+    })
+
   }
 
   filterCommandes() {
@@ -65,7 +74,7 @@ export class CommandesComponent implements OnInit {
 
   change(index: number) {
     console.log(this.checkList);
-    
+
     this.checkList[index] = !this.checkList[index];
     if (this.checkList[index]) {
       this.selectedItems.push(this.filteredCommandes[index]);
@@ -87,7 +96,7 @@ export class CommandesComponent implements OnInit {
         this.socket.emit("changeEtat", this.selectedItems);
         this.filteredCommandes = data;
         this.tabCommandes = data;
-        this.selectedItems  = Array(this.filteredCommandes.length).fill(false)
+        this.selectedItems = Array(this.filteredCommandes.length).fill(false)
       });
     console.log("Selected Items:", this.selectedItems);
     console.log("Selected Option:", this.selectedOption); // Log the selected option
@@ -99,20 +108,35 @@ export class CommandesComponent implements OnInit {
   }
 
   printReservation(commande: Commande) {
-    console.log(commande);
+
+
+    this.tabMatch = this.tabMatch.filter(e => e.profile.id == commande.client.profile.id)
 
     let x = "";
+    let totalHT=0;
     for (let index = 0; index < commande.rows.length; index++) {
+
+      console.log(commande.rows[index].product.categorie);
+
+      let aux = this.tabMatch.filter(e => e.categorie.id == commande.rows[index].product.categorie.id)[0]
+      totalHT+=  commande.rows[index].price  ;
+
       x =
         x +
         "<tr><td>" +
-        commande.rows[index].id +
+        commande.rows[index].product.ref +
         "</td><td>" +
         commande.rows[index].product.name +
         "</td><td>" +
         commande.rows[index].qte +
         "</td><td>" +
-        commande.rows[index].price +
+        commande.rows[index].product.price +
+        "</td><td>" +
+        aux.remise +"%"+
+        "</td><td>" +
+        commande.rows[index].price  +
+        "</td><td>" +
+        commande.rows[index].product.tva +
         "</td></tr>";
     }
 
@@ -136,24 +160,78 @@ export class CommandesComponent implements OnInit {
               th {
                 background-color: #f2f2f2;
               }
+              .container {
+                border: 1px solid #ddd; 
+                padding: 20px; 
+                display: flex; 
+              }
+              .company-info {
+                margin-left: 20px; 
+              }
+
             </style>
           </head>
           <body onload="window.print();">
-            <h1>Commande Details</h1>
+          <div class="container">
+    <img src="../../assets/img/logoTopTrading.png" alt="Company Logo" width="200px">  
+    <div class="company-info">
+      <h1>Top Trading</h1>
+      <p>Capital: 300 000 DT-RC: B0186722008 Code TVA: 1077101F/A/M/000- </p>
+      <p>Siège social: Rue Imam Rassaa App 20 Belvedere 1002 Tunis-Tunisie</p>
+      <p>Tel: +216 71 651444/71 651555 Fax +216 71 650144</p>
+    </div>
+
+  
+  </div>
+<br>
+  <div >
+    <h2>Client</h2>  <div >
+      <p><b>Désignation:</b>${commande.client.name}</p>
+      <p><b>Téléphone:</b> ${commande.client.phone}</p>
+      <p><b>Email:</b> ${commande.client.email}</p>
+    </div>
+
+  </div>
+            <h1>BON DE COMMANDE 
+            </h1>
             <table>
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Product Name</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
+                  <th>Référence</th>
+                  <th>Désignation</th>
+                  <th>Quantité</th>
+                  <th>P.U.H.TVA</th>
+                  <th>Remise</th>      
+                  <th>Montant HT</th>
+                  <th>TVA</th>
                 </tr>
               </thead>
               <tbody>
                 ${x}
               </tbody>
             </table>
-            prix total : ${commande.total}
+            <br>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <table>
+            <tr>
+            <th>Total HT</th>
+            <th>Total TTC</th>
+            <th>NET A PAYER</th>
+            </tr>
+
+            <tr>
+            <td>${totalHT}</td>
+            <td>${commande.total}</td>
+            <td>${commande.total}</td>
+
+            </tr>
+          
+
+            </table>
+           
           </body>
         </html>
       `);

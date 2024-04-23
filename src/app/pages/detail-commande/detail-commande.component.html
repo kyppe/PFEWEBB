@@ -23,7 +23,8 @@
                 <th>Reference Produit</th>
                 <th>Intitulé Produit</th>
                 <th>Quantité</th>
-                <th>Prix</th>
+                <th>P.U</th>
+
               </tr>
             </thead>
             <tbody>
@@ -31,7 +32,7 @@
                 <td>{{ row.product.ref }}</td>
                 <td>{{ row.product.name }}</td>
                 <td>{{ row.qte }}</td>
-                <td>{{ row.price }}</td>
+                <td>{{ row.product.price }}</td>
               </tr>
             </tbody>
           </table>
@@ -45,7 +46,7 @@
         <strong>Tarification</strong>
     </div>
       <div class="card-body">
-        <p class="card-text">TOTAL HT : {{commande.total}} </p>
+        <p class="card-text">TOTAL HT APRES REMISE: {{commande.total}} </p>
       </div>
     </div>
   </div>

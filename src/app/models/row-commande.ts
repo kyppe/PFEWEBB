@@ -6,10 +6,10 @@ export class RowCommande {
     id:number;
     commande:Commande;
     product:Produit;
-    qte:Number;
-    price:Number
+    qte:number;
+    price:number
 
-    constructor(commande:Commande,product:Produit,qte:Number,id:number)
+    constructor(commande:Commande,product:Produit,qte:number,id:number)
     {
 
         this.commande=commande;
