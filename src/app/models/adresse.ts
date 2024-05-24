@@ -1,10 +1,10 @@
 export class Adresse {
-  id: number;
+  id: string;
   lat: number;
   long: number;
   address: string;
 
-  constructor(lat: number, long: number, address: string, id: number) {
+  constructor(lat: number, long: number, address: string, id: string) {
     this.lat = lat;
     this.long = long;
     this.address = address;

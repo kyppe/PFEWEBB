@@ -20,6 +20,11 @@ export class ProduitService {
   addproduit(produit: Produit): Observable<Produit> {
     return this.http.post<Produit>(this.url, produit);
   }
+
+  addImage(fromData: FormData): Observable<Produit> {
+    return this.http.post<Produit>(this.url+"/upload", fromData);
+  }
+
   deleteproduit(ref: string) {
     return this.http.delete(this.url + '/'+ref);
   }

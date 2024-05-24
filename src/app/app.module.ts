@@ -23,6 +23,7 @@ import { MapProductComponent } from './pages/map-product/map-product.component';
 import { MapClientComponent } from './pages/map-client/map-client.component';
 import { MapTransactionComponent } from './pages/map-transaction/map-transaction.component';
 import { MapAdressComponent } from './pages/map-adress/map-adress.component';
+import { AddImageProductComponent } from './pages/add-image-product/add-image-product.component';
 
 
 
@@ -38,7 +39,8 @@ import { MapAdressComponent } from './pages/map-adress/map-adress.component';
     MapProductComponent,
     MapClientComponent,
     MapTransactionComponent,
-    MapAdressComponent
+    MapAdressComponent,
+    AddImageProductComponent
   
    
     

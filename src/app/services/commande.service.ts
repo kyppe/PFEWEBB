@@ -18,13 +18,13 @@ export class CommandeService {
   getById(id: number): Observable<Commande> {
     return this.http.get<Commande>(this.url + '/' + id);
   }
-  addCommande(id:number,Commande: any): Observable<Commande> {
+  addCommande(id:string,Commande: any): Observable<Commande> {
     return this.http.put<Commande>(this.url2+"/addcommande/"+id, Commande);
   }
   deleteCommande(id: number):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
   }
-  updateCommande(id: number, Commande: any): Observable<Commande> {
+  updateCommande(id: string, Commande: any): Observable<Commande> {
     return this.http.put<Commande>(this.url+'/'+id, Commande);
   }
   updateEtateCommande(data:any,etat:any):Observable<any>

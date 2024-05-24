@@ -16,6 +16,7 @@ export const ROUTES: RouteInfo[] = [
   { path: "/categories", title: "Categories", icon: "nc-badge", class: "" },
   { path: "/profiles", title: "Profiles", icon: "nc-badge", class: "" },
   { path: "/maps", title: "maps", icon: "nc-single-copy-04", class: "" },
+  { path: "/addImageProduct", title: "upload image", icon: "nc-single-copy-04", class: "" },
 
   {
     path: "/matchProfileCategories",

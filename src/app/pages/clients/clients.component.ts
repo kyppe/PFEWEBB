@@ -55,7 +55,7 @@ export class ClientsComponent implements OnInit {
       }
 
 
-      deleteClient(id:number)
+      deleteClient(id:string)
       {
         this.clientService.deleteClient(id).subscribe(data=>{
           

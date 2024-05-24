@@ -12,7 +12,7 @@ import { Socket, io } from 'socket.io-client';
 export class DetailClientComponent implements OnInit {
 
 
-  id!: number;
+  id!: string;
   client!: Client;
   tabClients!: Client[];
     searchText: string = '';
@@ -22,7 +22,7 @@ export class DetailClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.id = +params['id'];    //+ converti id en string
+      this.id = params['id'];    //+ converti id en string
       this.clientService.getById(this.id).subscribe(data => {
        console.log(data);
        

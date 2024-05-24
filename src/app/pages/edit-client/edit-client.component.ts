@@ -11,7 +11,7 @@ import { ClientService } from 'app/services/client.service';
 })
 export class EditClientComponent implements OnInit {
 
-  id: number;
+  id: string;
   aux!: Client;
 
   clientForm!: FormGroup;
@@ -24,7 +24,7 @@ export class EditClientComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      this.id = +params['id'];      // + convertit l id en string
+      this.id = params['id'];      // + convertit l id en string
       this.clientService.getById(this.id).subscribe(data => { this.aux = data; 
         this.clientForm.get('Email').setValue(this.aux.email);
         this.clientForm.get('nom').setValue(this.aux.name);

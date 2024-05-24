@@ -30,5 +30,8 @@ export class MapsComponent implements OnInit {
 
   nextPage() {
     this.tablenumber++;
+    if(this.tablenumber>4){
+
+    }
   }
 }

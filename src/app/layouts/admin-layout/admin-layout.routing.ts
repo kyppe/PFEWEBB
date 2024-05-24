@@ -26,6 +26,7 @@ import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-
 import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-categorie/add-match-profile-categorie.component';
 import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
 import { MapsComponent } from 'app/pages/maps/maps.component';
+import { AddImageProductComponent } from 'app/pages/add-image-product/add-image-product.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -53,6 +54,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'affecterProduits/:id', component: AffecterProduitsComponent },
     { path: 'matchProfileCategories', component: MatchProfileCategorieComponent },
     { path: 'ajoutMatchProfileCategories', component: AddMatchProfileCategorieComponent },
+    { path: 'addImageProduct', component: AddImageProductComponent },
+
     {path:"maps",component:MapsComponent}
 
 

@@ -1,0 +1,20 @@
+<div class="file-upload">
+    <button class="file-upload-btn" type="button" (click)="fileInput.click()">Add Images</button>
+    <button class="file-upload-btn" type="button" (click)="save()">Save Images</button>
+
+    <input #fileInput class="file-upload-input" type="file" multiple (change)="onFileSelected($event)" style="display: none;" />
+    
+    <div class="image-upload-wrap"  style="display: flex; ">
+      <div class="drag-text">
+        <h3>Drag and drop files or select Add Images</h3>
+    <div *ngFor="let file of selectedFiles">
+      <div class="file-upload-content" style="flex-direction: row;">
+        <img class="file-upload-image" [src]="file.preview" alt="your image" />
+        <div class="image-title-wrap">
+          <button type="button" class="remove-image" (click)="removeFile(file)">Remove <span class="image-title">{{ file.name }}</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

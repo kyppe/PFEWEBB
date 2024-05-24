@@ -1,13 +1,18 @@
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <button (click)="nextPage()" class="btn btn-warning" style="position: absolute; top: 15px; right: 0; color: white;">
-        page suivante 
-    </button>
-      <app-map-product *ngIf="tablenumber==0"></app-map-product>
-      <app-map-client *ngIf="tablenumber==1"></app-map-client>
-      <app-map-adress  *ngIf="tablenumber==2"></app-map-adress>
-      <app-map-transaction *ngIf="tablenumber==3"></app-map-transaction>
+      <button
+        (click)="nextPage()"
+        class="btn btn-warning"
+        style="position: absolute; top: 15px; right: 0; color: white"
+      >
+        page suivante
+      </button>
+      <app-map-product *ngIf="tablenumber == 0"></app-map-product>
+      <app-add-image-product *ngIf="tablenumber == 1"></app-add-image-product>
+      <app-map-client *ngIf="tablenumber == 2"></app-map-client>
+      <app-map-adress *ngIf="tablenumber == 3"></app-map-adress>
+      <app-map-transaction *ngIf="tablenumber == 4"></app-map-transaction>
     </div>
   </div>
 </div>

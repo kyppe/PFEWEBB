@@ -21,19 +21,19 @@ export class ClientService {
     
     return this.http.get<Client[]>(this.url);
   }
-  getById(id: number): Observable<Client> {
+  getById(id: string): Observable<Client> {
     return this.http.get<Client>(this.url + '/' + id);
   }
   addClient(client: any): Observable<Client> {
     return this.http.post<Client>(this.url, client);
   }
-  deleteClient(id: number):Observable<any>  {
+  deleteClient(id: string):Observable<any>  {
     return this.http.delete<void>(this.url + '/'+id);
   }
-  updateClient(id: number, client: any): Observable<Client> {
+  updateClient(id: string, client: any): Observable<Client> {
     return this.http.put<Client>(this.url+'/'+id, client);
   }
-  activateClient(id:number,client:any):Observable<Client>
+  activateClient(id:string,client:any):Observable<Client>
   {
     return this.http.put<Client>(this.url+'/actif/'+id,client)
   }
