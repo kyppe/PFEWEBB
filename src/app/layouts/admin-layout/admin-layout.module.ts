@@ -31,6 +31,8 @@ import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-cl
 import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
 import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-categorie/add-match-profile-categorie.component';
 import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -40,6 +42,9 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule
+    
   ],
   declarations: [
     DashboardComponent,
@@ -66,7 +71,9 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
     AffecterClientsComponent,
     AffecterProduitsComponent,
     MatchProfileCategorieComponent,
-    AddMatchProfileCategorieComponent
+    AddMatchProfileCategorieComponent,
+
+    
 
     
 

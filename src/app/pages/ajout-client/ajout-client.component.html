@@ -11,7 +11,11 @@
               <div class="col-md-5 pr-1">
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" class="form-control" placeholder="Email" formControlName="Email" >
+                  <input type="email" class="form-control" placeholder="Email" formControlName="Email" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.Email.errors }" >
+                  <div *ngIf="submitted && clientForm.controls.Email.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.Email.errors.required">Email is required</div>
+                    <div *ngIf="clientForm.controls.Email.errors.email">Invalid email format</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -20,21 +24,30 @@
               <div class="col-md-6 pr-1">
                 <div class="form-group">
                   <label>Nom</label>
-                  <input type="text" class="form-control" placeholder="Nom"  formControlName="nom">
-                </div>
+                  <input type="text" class="form-control" placeholder="Nom"  formControlName="nom" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.nom.errors }">
+                  <div *ngIf="submitted && clientForm.controls.nom.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.nom.errors.required">Nom is required</div>
+                  </div>                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>Telephone</label>
-                  <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone">
+                  <input type="text" class="form-control" placeholder="Telephone"  formControlName="telephone" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.telephone.errors }">
+                  <div *ngIf="submitted && clientForm.controls.telephone.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.telephone.errors.required">Telephone is required</div>
+                    <div *ngIf="clientForm.controls.telephone.errors.pattern">Invalid telephone format</div>
+                  </div>
                 </div>
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>CIN</label>
-                  <input type="text" class="form-control" placeholder="Matricule Fiscale/Cin"  formControlName="mf">
+                  <input type="text" class="form-control" placeholder="Matricule Fiscale/Cin"  formControlName="mf" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.mf.errors }">
+                  <div *ngIf="submitted && clientForm.controls.mf.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.mf.errors.required">CIN is required</div>
+                  </div>              
                 </div>
               </div>
             </div>

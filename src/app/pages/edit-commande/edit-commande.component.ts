@@ -54,12 +54,14 @@ export class EditCommandeComponent implements OnInit {
       aux.push({ "qte": this.newOrder.rows[i].qte, "productId": this.newOrder.rows[i].product.ref })
     }
 
-
-    this.commandeService.updateCommande(cli.id, {"rows":aux}).subscribe(data => {
+    console.log(aux);
+    
+    this.commandeService.updateCommande(this.id, {"rows":aux}).subscribe(data => {
       console.log(data);
       this.router.navigate(["/commandes"])
     }
     )
+    
   }
 
   onProductChange(selectedProduct: any, index: number) {
@@ -69,6 +71,8 @@ export class EditCommandeComponent implements OnInit {
   }
 
   addRow() {
+    console.log("addR");
+    
     this.newOrder.rows.push(new RowCommande(null, null, null, null));
   }
 

@@ -23,6 +23,8 @@ import { MapProductComponent } from './pages/map-product/map-product.component';
 import { MapClientComponent } from './pages/map-client/map-client.component';
 import { MapTransactionComponent } from './pages/map-transaction/map-transaction.component';
 import { MapAdressComponent } from './pages/map-adress/map-adress.component';
+import { SuccessDialogComponent } from "./pages/success-dialog/success-dialog.component";
+
 
 
 
@@ -38,12 +40,11 @@ import { MapAdressComponent } from './pages/map-adress/map-adress.component';
     MapProductComponent,
     MapClientComponent,
     MapTransactionComponent,
-    MapAdressComponent
-  
-   
-    
-    
+    MapAdressComponent,
+    SuccessDialogComponent,
 
+    
+    
 
   ],
   imports: [
@@ -55,7 +56,9 @@ import { MapAdressComponent } from './pages/map-adress/map-adress.component';
     FooterModule,
     FixedPluginModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    
+    
   ],
   providers:  [
     {

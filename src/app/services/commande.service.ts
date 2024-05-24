@@ -15,7 +15,7 @@ export class CommandeService {
   getAll(): Observable<Commande[]> {
     return this.http.get<Commande[]>(this.url);
   }
-  getById(id: number): Observable<Commande> {
+  getById(id: number): Observable<Commande> { 
     return this.http.get<Commande>(this.url + '/' + id);
   }
   addCommande(id:number,Commande: any): Observable<Commande> {
@@ -27,8 +27,8 @@ export class CommandeService {
   updateCommande(id: number, Commande: any): Observable<Commande> {
     return this.http.put<Commande>(this.url+'/'+id, Commande);
   }
-  updateEtateCommande(data:any,etat:any):Observable<any>
+  updateEtateCommande(data:any,id:number,etat:any):Observable<any>
   {
-    return this.http.put<any>(this.url+"/etat/"+etat,data)
+    return this.http.put<any>(this.url+"/"+id+"/etat/"+etat,data)
   }
 }

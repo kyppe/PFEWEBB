@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientService } from 'app/services/client.service';
 
@@ -12,10 +12,12 @@ export class AjoutClientComponent implements OnInit {
 
 
   clientForm!:FormGroup;
+  submitted = false;
+
   constructor(private fb: FormBuilder,private router: Router, private activatedRoute: ActivatedRoute,private clientService:ClientService
     ) {
       this.clientForm=this.fb.group({
-        Email:[''],nom:[""],telephone:[''],mf:['']
+        Email:['',[Validators.required, Validators.email]],nom:["",[Validators.required]],telephone:['', [Validators.required, Validators.pattern('^[0-9]{8}$')]],mf:['',[Validators.required]]
       })
      }
 
@@ -27,6 +29,12 @@ export class AjoutClientComponent implements OnInit {
 
   ajouterClient()
   {
+
+    this.submitted = true;
+
+    if (this.clientForm.invalid) {
+      return;
+    }
 
     this.clientService.addClient({
       email:this.clientForm.value.Email,
