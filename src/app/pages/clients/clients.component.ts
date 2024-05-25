@@ -85,8 +85,9 @@ export class ClientsComponent implements OnInit {
           client=data
           this.tabClients[i]=data
           console.log(client);
-
         })
       }
+
+     
 
 }

@@ -1,56 +1,58 @@
 <!-- add-order.component.html -->
 
 <div class="container mt-4">
-    <h2 class="mb-4">Mettre à jour Commande</h2>
-  
-    <form>
-    
-      <div class="card mb-4">
-        <div class="card-header">
-          Client
+  <h2 class="mb-4">Mettre à jour Commande</h2>
+
+  <form>
+
+    <div class="card mb-4">
+      <div class="card-header">
+        Client
       </div>
-        <div class="card-body">
-          <p class="card-text"><strong>Nom,Prenom:</strong>  {{newOrder?.client?.lastname}} {{ newOrder?.client?.name }}</p>
-        </div>
+      <div class="card-body">
+        <p class="card-text"><strong>Nom,Prenom:</strong> {{newOrder?.client?.lastname}} {{ newOrder?.client?.name }}
+        </p>
       </div>
-      
-       <!-- Order Items Table -->
-       <table class="table">
-        <thead>
-          <tr>
-            <th>Produit</th>
-            <th>Quantité</th>
-            <th>Prix HT</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of newOrder?.rows; let i = index">
-            <td>
-              <select class="form-control"  (change)="onProductChange($event.target.value, i)" >
-                <option *ngFor="let product of tabProduits" [selected]="row?.product.name==product.name" [ngValue]="product" >{{ product.ref }}</option>
-              </select>
-            </td>
-            <td>
-              <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}">
-            </td>
-            <td>
-              <p>{{row.product?.price}}</p>
-            </td>
-            <td>
-              <button type="button" class="btn btn-danger" (click)="removeRow(i)">Supprimer</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-  
-      <!-- Add Row Button -->
-      <button type="button" class="btn btn-primary mb-3" (click)="addRow()">Ajouter Produit</button>
-  
-  
-      <br>
-      <!-- Submit Button -->
-      <button type="button" class="btn btn-success mt-3" (click)="ajouterCommande()">Envoyer</button>
-    </form>
-  </div>
-  
+    </div>
+
+    <!-- Order Items Table -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix HT</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of newOrder?.rows; let i = index">
+          <td>
+            <select class="form-control" (change)="onProductChange($event.target.value, i)">
+              <option *ngFor="let product of tabProduits" [ngValue]="product">
+                {{ product.ref }}
+              </option>
+            </select>
+          </td>
+          <td>
+            <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}">
+          </td>
+          <td>
+            <p>{{row.product?.price}}</p>
+          </td>
+          <td>
+            <button type="button" class="btn btn-danger" (click)="removeRow(i)">Supprimer</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Add Row Button -->
+    <button type="button" class="btn btn-primary mb-3" (click)="addRow()">Ajouter Produit</button>
+
+    <br>
+    <!-- Submit Button -->
+    <button type="button" class="btn btn-success mt-3" (click)="ajouterCommande()">Envoyer</button>
+
+  </form>
+</div>

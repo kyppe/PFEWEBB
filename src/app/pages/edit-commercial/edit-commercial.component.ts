@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Commercial } from 'app/models/commercial';
 import { CommercialService } from 'app/services/commercial.service';
@@ -15,10 +15,12 @@ export class EditCommercialComponent implements OnInit {
   aux!: Commercial;
 
   commercialForm!: FormGroup;
+  submitted = false;
+
   constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private commercialService: CommercialService
   ) {
     this.commercialForm = this.fb.group({
-      Email: [''], prenom: [''], nom: [""], telephone: [''], cin: ['']
+      Email: ['',[Validators.required, Validators.email]], prenom: [''], nom: [""], telephone: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]], cin: ['']
     })
   }
 
@@ -40,6 +42,12 @@ export class EditCommercialComponent implements OnInit {
 
 
   Editcommercial() {
+
+    this.submitted = true;
+
+    if (this.commercialForm.invalid) {
+      return;
+    }
 
     this.commercialService.updateCommercial(this.id, {
       email: this.commercialForm.value.Email,

@@ -33,6 +33,7 @@ import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-c
 import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
 
 
+
 @NgModule({
   imports: [
     ReactiveFormsModule,
@@ -40,6 +41,9 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     NgbModule,
+
+  
+    
   ],
   declarations: [
     DashboardComponent,
@@ -66,7 +70,9 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
     AffecterClientsComponent,
     AffecterProduitsComponent,
     MatchProfileCategorieComponent,
-    AddMatchProfileCategorieComponent
+    AddMatchProfileCategorieComponent,
+
+    
 
     
 

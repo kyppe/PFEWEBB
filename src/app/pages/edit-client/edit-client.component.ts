@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from 'app/models/client';
 import { ClientService } from 'app/services/client.service';
@@ -15,10 +15,12 @@ export class EditClientComponent implements OnInit {
   aux!: Client;
 
   clientForm!: FormGroup;
+  submitted = false;
+
   constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private clientService: ClientService
   ) {
     this.clientForm = this.fb.group({
-      Email: [''],  nom: [""], telephone: [''], cin: ['']
+      Email: ['',[Validators.required, Validators.email]],  nom: [""], telephone: ['', [Validators.required, Validators.pattern('^[0-9]{8}$')]], cin: ['']
     })
   }
 
@@ -38,6 +40,13 @@ export class EditClientComponent implements OnInit {
 
 
   EditClient() {
+
+    this.submitted = true;
+
+    if (this.clientForm.invalid) {
+      return;
+    }
+
 
     this.clientService.updateClient(this.id, {
       email: this.clientForm.value.Email,
