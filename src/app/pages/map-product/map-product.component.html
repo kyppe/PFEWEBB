@@ -34,7 +34,7 @@
         style="color: white;margin: 20px;"
           (click)="nextFile()"
         >
-        miss a jour des nouveau données 
+        miss a jour des données 
         </button>
       </div>
     </div>
@@ -46,22 +46,23 @@
           <thead class="text-primary">
             <tr>
               <td
-                style="text-align: center"
-                *ngFor="let row of this.dataTable.columns; index as index"
+              style="text-align: center"
+              *ngFor="let row of this.dataTable.columns; index as index"
+            >
+              <input
+                type="checkbox"
+                *ngIf="this.checkBoxs[index]"
+                [(ngModel)]="checkBoxsValues[index]"
+              />
+              <br />
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                [(ngModel)]="selects[index]"
               >
-                <select class="form-select" aria-label="Default select example"
-                  *ngIf="this.checkBoxs[index] == false"
-                  [(ngModel)]="selects[index]"
-                >
-                  <option *ngFor="let att of listatt">{{ att }}</option>
-                </select>
-
-                <input
-                  type="checkbox"
-                  *ngIf="this.checkBoxs[index]"
-                  [(ngModel)]="checkBoxsValues[index]"
-                />
-              </td>
+                <option *ngFor="let att of listatt">{{ att }}</option>
+              </select>
+            </td>
             </tr>
             <tr>
               <th

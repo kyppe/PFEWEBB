@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
+import { Router } from "@angular/router";
 import { Maps } from "app/models/maps";
 import { MapsService } from "app/services/maps.service";
 
@@ -23,15 +24,17 @@ export class MapsComponent implements OnInit {
   savedTransaction = false;
   savedClinets = false;
 
-  constructor(public fb: FormBuilder, public server: MapsService) {}
-  ngOnInit(): void {
-  }
-
+  constructor(
+    public fb: FormBuilder,
+    public server: MapsService,
+    private router: Router
+  ) {}
+  ngOnInit(): void {}
 
   nextPage() {
     this.tablenumber++;
-    if(this.tablenumber>4){
-
+    if (this.tablenumber > 4) {
+      this.router.navigate(["/dashboard"]);
     }
   }
 }

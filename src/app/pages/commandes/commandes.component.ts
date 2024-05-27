@@ -225,4 +225,4 @@ export class CommandesComponent implements OnInit {
       printWindow.document.close();
     }
   }
-}
+} 
