@@ -19,9 +19,22 @@
           <span> {{ client.mf }}</span>
         </div>
         <div style="padding: 15px">
+          <label style="margin-right: 5px">Longitude  </label>
+          <span> {{ client.addresses.long }}</span>
+        </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">Latitude : </label>
+          <span> {{ client.addresses.lat}}</span>
+        </div>
+        <div style="padding: 15px">
+          <label style="margin-right: 5px">Address : </label>
+          <span> {{ client.addresses.address }}</span>
+        </div>
+        <div style="padding: 15px">
           <label style="margin-right: 5px">credit: </label>
           <span *ngIf="sum > 0" style="color: green"> {{ sum }}</span>
           <span *ngIf="sum < 0" style="color: red"> {{ sum }}</span>
+          <span *ngIf="sum == 0"> {{ sum }}</span>
         </div>
       </div>
 

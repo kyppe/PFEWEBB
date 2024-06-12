@@ -11,6 +11,8 @@ import { Router } from "@angular/router";
 export class ProduitComponent implements OnInit {
 
   tabProduits!:Produit[];
+  tabProduitsFilt!:Produit[];
+  searchText:string
   filteredProduits!:Produit[];
 
   constructor(private produitService:ProduitService,private router:Router ){
@@ -20,7 +22,10 @@ export class ProduitComponent implements OnInit {
 
 
   ngOnInit(){
-      this.produitService.getAll().subscribe(data=>{this.tabProduits=data;this.filteredProduits=data});
+      this.produitService.getAll().subscribe(data=>{
+        this.tabProduits=data;this.filteredProduits=data
+        this.tabProduitsFilt=data;
+      });
 
   }
 
@@ -34,6 +39,13 @@ export class ProduitComponent implements OnInit {
   supprimerProduit(id:string)
   {
     this.produitService.deleteproduit(id).subscribe(data=>{})
+  }
+  filterCommandes() {
+    this.tabProduitsFilt = this.tabProduits.filter((com) => {
+      return com.ref
+        .toLowerCase()
+        .includes(this.searchText.toLowerCase());
+    });
   }
 
 }

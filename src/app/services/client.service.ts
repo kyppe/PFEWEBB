@@ -46,4 +46,7 @@ export class ClientService {
   getAttributes(): Observable<String[]> {
     return this.http.get<String[]>(this.url+"/attributes");
   }
+  groupBy(): Observable<any[]> {
+    return this.http.get<any[]>(this.url+"/getDates");
+  }
 }

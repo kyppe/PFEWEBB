@@ -4,4 +4,5 @@ export class Maps {
     table:string
     values:any[]
     exist:boolean
+    id:number
 }

@@ -133,8 +133,15 @@ export class MapClientComponent implements OnInit {
         this.saveTest = true;
       });
   }
-
+  togglePopup() { 
+    const overlay = document.getElementById('popupOverlay'); 
+    overlay.classList.toggle('show'); 
+} 
   nextPage() {
     this.tablenumber++;
   }
+  togglePopup1() { 
+    const overlay = document.getElementById('popupOverlay1'); 
+    overlay.classList.toggle('show'); 
+  } 
 }

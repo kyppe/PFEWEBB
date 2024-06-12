@@ -10,7 +10,7 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-warning"><a href="/ajoutProfile" style="color: white;">Ajouter un Profile</a></button>
+          <button type="button" class="btn btn-info btn-sm mr-1"><a href="/ajoutProfile" style="color: white;">Ajouter un Profile</a></button>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -44,8 +44,8 @@
                 </td>
 
                 <td>
-                  <button class="btn btn-warning mr-1" (click)="affecterClients(prof.id)">Affecter clients</button>
-                  <button class="btn btn-warning" (click)="deleteProfile(prof.id)">Supprimer</button>
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="affecterClients(prof.id)">Affecter clients</button>
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="deleteProfile(prof.id)">Supprimer</button>
                 </td>
               </tr>
             </tbody>

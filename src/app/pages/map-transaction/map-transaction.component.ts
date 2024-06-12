@@ -136,4 +136,12 @@ export class MapTransactionComponent implements OnInit {
   nextPage() {
     this.tablenumber++;
   }
+  togglePopup() { 
+    const overlay = document.getElementById('popupOverlay'); 
+    overlay.classList.toggle('show'); 
+} 
+togglePopup1() { 
+  const overlay = document.getElementById('popupOverlay1'); 
+  overlay.classList.toggle('show'); 
+} 
 }

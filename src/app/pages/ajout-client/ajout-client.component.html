@@ -31,6 +31,17 @@
               </div>
             </div>
             <div class="row">
+           
+              <div class="col-md-6 pr-1">
+                <div class="form-group">
+                  <label>address</label>
+                  <input type="text" class="form-control" placeholder="address"  formControlName="address" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.address.errors }">
+                  <div *ngIf="submitted && clientForm.controls.address.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.address.errors.required">address is required</div>
+                  </div>                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>Telephone</label>
@@ -43,10 +54,30 @@
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label>CIN</label>
-                  <input type="text" class="form-control" placeholder="Matricule Fiscale/Cin"  formControlName="mf" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.mf.errors }">
+                  <label>MF</label>
+                  <input type="text" class="form-control" placeholder="Matricule Fiscale/MF"  formControlName="mf" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.mf.errors }">
                   <div *ngIf="submitted && clientForm.controls.mf.errors" class="invalid-feedback">
-                    <div *ngIf="clientForm.controls.mf.errors.required">CIN is required</div>
+                    <div *ngIf="clientForm.controls.mf.errors.required">MF is required</div>
+                  </div>              
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>lat</label>
+                  <input type="text" class="form-control" placeholder="lat"  formControlName="lat" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.lat.errors }">
+                  <div *ngIf="submitted && clientForm.controls.lat.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.lat.errors.required">lat is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>long</label>
+                  <input type="text" class="form-control" placeholder="long"  formControlName="long" [ngClass]="{ 'is-invalid': submitted && clientForm.controls.long.errors }">
+                  <div *ngIf="submitted && clientForm.controls.long.errors" class="invalid-feedback">
+                    <div *ngIf="clientForm.controls.long.errors.required">long is required</div>
                   </div>              
                 </div>
               </div>

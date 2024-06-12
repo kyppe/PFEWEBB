@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <button type="button" class="btn btn-info mr-1">
+          <a href="/ajoutCommande" style="color: white">Ajouter une commande</a>
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="text-primary">
+                <th style="text-align: center;">Table de la base importé</th>
+                <th style="text-align: center;">Champ de la base importé</th>
+                <th style="text-align: center;">Table de la base de solutions</th>
+              <th style="text-align: center;">Champ de la base de solutions</th>
+              <th style="text-align: center;">clé primaire</th>
+              <th style="text-align: center;">Actions</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let map of maps; index as index">
+                <td style="text-align: center;" *ngIf="map.bdfield">{{ map.bdTableName }}</td>
+                <td style="text-align: center;" *ngIf="map.bdfield">{{ map.bdfield }}</td>
+
+                <td style="text-align: center;" *ngIf="map.bdfield">{{ map.dynTableName }}</td>
+
+                <td style="text-align: center;" *ngIf="map.bdfield">{{ map.dynfield }}</td>
+
+                <td style="text-align: center;" *ngIf="map.bdfield">{{ map.primaryKey }}</td>
+                <td style="text-align: center;" *ngIf="map.bdfield">
+                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="updateMap(map.id)">
+                    Mettre à jour
+                  </button>
+                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="deleteMap(map.id)">
+                    Supprimer
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

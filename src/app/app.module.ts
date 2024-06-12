@@ -25,6 +25,10 @@ import { MapAdressComponent } from "./pages/map-adress/map-adress.component";
 import { AddImageProductComponent } from "./pages/add-image-product/add-image-product.component";
 import { SuccessDialogComponent } from "./pages/success-dialog/success-dialog.component";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CrudMapComponent } from './pages/crud-map/crud-map.component';
+import { UpdateMapComponent } from './pages/update-map/update-map.component';
+import { PopupComponent } from './pages/popup/popup.component';
+import { InstallationComponent } from './pages/installation/installation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +42,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AddImageProductComponent,
 
     SuccessDialogComponent,
+      CrudMapComponent,
+      UpdateMapComponent,
+      PopupComponent,
+      InstallationComponent,
   ],
   imports: [
     BrowserAnimationsModule,

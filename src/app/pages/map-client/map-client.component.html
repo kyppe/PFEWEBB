@@ -1,94 +1,187 @@
-<div class="card-header">
-  <p *ngIf="listgroupby.length > 0">
-    Voici la liste des tables auxquelles le système a accédé via les clés
-    étrangères
-    <span style="color: darkgoldenrod">{{ listgroupby.join(", ") }}</span>
-    <br />
-  </p>
-  <p>
-    donnez-moi tous les fichiers liés au
-    <span style="color: green"> client.</span>
-  </p>
-  <div style="position: relative" class="input-group no-border">
-    <div>
-      <!-- Added class for spacing -->
-      <label for="fileInput" class="custom-file-upload">
-        <input
-          id="fileInput"
-          type="file"
-          (change)="onFileSelected($event)"
-          accept=".csv,.sql"
-        />
-        Choisissez un fichier
-      </label>
+<div class="col-md-12">
+  <div class="card">
+    <button
+      type="button"
+      class="btn btn-info btn-sm mr-1 help"
+      (click)="togglePopup()"
+    >
+      aide
+    </button>
+    <button
+      type="button"
+      class="btn btn-info btn-sm mr-1 help1"
+      (click)="togglePopup1()"
+    >
+      description
+    </button>
+    <div class="card-header">
+      <p *ngIf="listgroupby.length > 0">
+        Voici la liste des tables auxquelles le système a accédé via les clés
+        étrangères
+        <span style="color: darkgoldenrod">{{ listgroupby.join(", ") }}</span>
+        <br />
+      </p>
+      <p>
+        donnez-moi tous les fichiers liés au
+        <span style="color: green"> client.</span>
+      </p>
+      <div style="position: relative" class="input-group no-border">
+        <div>
+          <!-- Added class for spacing -->
+          <label for="fileInput" class="custom-file-upload">
+            <input
+              id="fileInput"
+              type="file"
+              (change)="onFileSelected($event)"
+              accept=".sql"
+            />
+            Choisissez un fichier
+          </label>
 
-      <button
-        *ngIf="testshow"
-        class="btn btn-warning"
-        style="color: white; margin: 20px"
-        (click)="save()"
-      >
-        enregistrer des nouveau données
-      </button>
+          <button
+            *ngIf="testshow"
+            class="btn btn-warning"
+            style="color: white; margin: 20px"
+            (click)="save()"
+          >
+            enregistrer des nouveau données
+          </button>
 
-      <button
-        *ngIf="testshow"
-        class="btn btn-warning"
-        style="color: white; margin: 20px"
-        (click)="nextFile()"
-      >
-        miss a jour des données
-      </button>
+          <button
+            *ngIf="testshow"
+            class="btn btn-warning"
+            style="color: white; margin: 20px"
+            (click)="nextFile()"
+          >
+            miss a jour des données
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-body">
+        <div class="table-responsive">
+          <table *ngIf="testshow" class="table">
+            <thead class="text-primary">
+              <tr>
+                <td
+                  style="text-align: center"
+                  *ngFor="let row of this.dataTable.columns; index as index"
+                >
+                  <input
+                    type="checkbox"
+                    *ngIf="this.checkBoxs[index]"
+                    [(ngModel)]="checkBoxsValues[index]"
+                  /><br />
+
+                  <select
+                    class="form-select"
+                    aria-label="Default select example"
+                    *ngIf="this.checkBoxs[index] == false"
+                    [(ngModel)]="selects[index]"
+                  >
+                    <option *ngFor="let att of listatt">{{ att }}</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <th
+                  style="text-align: center"
+                  *ngFor="let header of dataTable.columns"
+                >
+                  {{ header }}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of dataTable.values">
+                <td
+                  style="text-align: center"
+                  *ngFor="let cell of dataTable.columns"
+                >
+                  {{ row[cell] }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<div class="card-body">
-  <div class="card-body">
-    <div class="table-responsive">
-      <table *ngIf="testshow" class="table">
-        <thead class="text-primary">
-          <tr>
-            <td
-              style="text-align: center"
-              *ngFor="let row of this.dataTable.columns; index as index"
-            >
-            <input
-            type="checkbox"
-            *ngIf="this.checkBoxs[index]"
-            [(ngModel)]="checkBoxsValues[index]"
-          /><br>
+<div id="popupOverlay" class="overlay-container">
+  <div class="popup-box">
+    <h2 style="color: green">Popup Form</h2>
+    <form class="form-container">
+      <div>
+        Ce bouton vous permet de choisir un fichier SQL exporté depuis votre
+        base de données.
+        <br />
+        <img
+          class="center"
+          style="width: 50%"
+          src="../../../assets/img/image1.png"
+        />
+        <br />
+        Vous choisissez votre fichier SQL depuis votre répertoire.
+        <img style="width: 75%" src="../../../assets/img/image2.png" />
+        <br />
+        Cette sélection montre les champs de la table de la base de données de
+        la solution.
+        <br />
+        <img style="width: 75%" src="../../../assets/img/image3.png" />
+        <br />
+        Choisissez votre champ qui équivaut au champ en dessus
+        <br />
+        <img style="width: 20%" src="../../../assets/img/image4.png" />
+        <br />
+        Si votre champ affiche une case à cocher au-dessus, cela signifie que
+        vous avez une jointure. Si vous avez besoin d'une autre table, cochez la
+        case du champ qui a une jointure.
+        <br />
+        <img style="width: 20%" src="../../../assets/img/image5.png" />
+        <br />
+        Voici un exemple après avoir choisi le champ équivalent de votre base de
+        données.
+        <br />
+        <img style="width: 75%" src="../../../assets/img/image6.png" />
+        <br />
+        Si c'est la première fois ou si vous voulez interdire de nouvelles
+        données, cliquez sur le bouton 'Enregistrer'
+        <br />
+        <img style="width: 75%" src="../../../assets/img/image7.png" />
+        <br />
+        Si corrigez les données interdites, ou si vous avez déjà interdit une
+        table et que vous voulez ajouter une deuxième table de jointure, cliquez
+        sur 'Mise à jour'.
+        <br />
+        <img style="width: 75%" src="../../../assets/img/image8.png" />
+        <br />
+        Introduisez dans le champ premier les types de transactions qui
+        augmentent le crédit du client. <br />
+        Introduisez dans le deuxième champ les types de transactions qui
+        diminuent le crédit du client.
+        <br />
+        <img style="width: 75%" src="../../../assets/img/image9.png" />
+      </div>
+    </form>
+    <button class="btn-close-popup" (click)="togglePopup()">Close</button>
+  </div>
+</div>
 
-              <select
-                class="form-select"
-                aria-label="Default select example"
-                *ngIf="this.checkBoxs[index] == false"
-                [(ngModel)]="selects[index]"
-              >
-                <option *ngFor="let att of listatt">{{ att }}</option>
-              </select>
-             
-            </td>
-          </tr>
-          <tr>
-            <th
-              style="text-align: center"
-              *ngFor="let header of dataTable.columns"
-            >
-              {{ header }}
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of dataTable.values">
-            <td
-              style="text-align: center"
-              *ngFor="let cell of dataTable.columns"
-            >
-              {{ row[cell] }}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div id="popupOverlay1" class="overlay-container">
+  <div class="popup-box1">
+    <h2 style="color: green">Popup Form</h2>
+    <form class="form-container">
+      <div style="text-align:justify;justify-content: center;">
+        <b>Name :</b> nom de client <br />
+        <b>Phone :</b> numéro téléphone du client <br />
+        <b>MF :</b> matricule fiscale du client <br />
+        <b>Email :</b> email du client <br />
+        <b>CreateAt :</b> quand le client est créé <br />
+        <b>UpdateAt :</b> la dernière fois que le client a été mis à jour
+      </div>
+    </form>
+    <button class="btn-close-popup" (click)="togglePopup1()">Close</button>
   </div>
 </div>

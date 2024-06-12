@@ -3,8 +3,13 @@
     <div class="card">
       <div class="card-header">
         <div class="input-group no-border">
-          <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search..."
-            (input)="filterCommandes()" />
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            class="form-control"
+            placeholder="Search..."
+            (input)="filterCommandes()"
+          />
           <div class="input-group-append mr-1">
             <div class="input-group-text">
               <i class="nc-icon nc-zoom-split"></i>
@@ -15,12 +20,13 @@
           <a href="/ajoutCommande" style="color: white">Ajouter une commande</a>
         </button>
         <select class="form-select mr-1" [(ngModel)]="selectedOption">
-          <option value="non examiné	">non examiné </option>
+          <option value="non examiné	">non examiné	</option>
           <option value="Encours" selected>Encours</option>
           <option value="prêt">prêt </option>
           <option value="livraison">livraison </option>
 
         </select>
+        <button class="btn btn-primary mr-1" (click)="save()">Change de etat</button>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -29,7 +35,8 @@
               <th>id</th>
               <th>Client</th>
               <th>Actions</th>
-              <th>Etat</th>
+              <th>etat</th>
+              <th>select</th>
             </thead>
             <tbody>
               <tr *ngFor="let com of filteredCommandes; index as index">
@@ -39,19 +46,18 @@
                   <button type="button" class="btn btn-info btn-sm mr-1" (click)="toDetailPage(com.id)">
                     Voir détails
                   </button>
-                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="updateCommande(com.id)">
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="updateCommande(com.id)">
                     Mettre à jour
                   </button>
-                  <button type="button" class="btn btn-sm btn-info mr-1" (click)="deleteCommande(com.id)">
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="deleteCommande(com.id)">
                     Supprimer
                   </button>
-                  <button class="btn btn-sm btn-info mr-1" (click)="printReservation(com)">export</button>
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="printReservation(com)">export</button>
                 </td>
-                <td >
-                 {{ com.etat }}
-                 
+                <td>{{com.etat}}</td>
+                <td>
+                  <input type="checkbox" (click)="change(index)" />
                 </td>
-                
               </tr>
             </tbody>
           </table>

@@ -27,6 +27,13 @@ import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-c
 import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
 import { MapsComponent } from 'app/pages/maps/maps.component';
 import { AddImageProductComponent } from 'app/pages/add-image-product/add-image-product.component';
+import { CrudMapComponent } from 'app/pages/crud-map/crud-map.component';
+import { UpdateMapComponent } from 'app/pages/update-map/update-map.component';
+import { MapProductComponent } from 'app/pages/map-product/map-product.component';
+import { MapClientComponent } from 'app/pages/map-client/map-client.component';
+import { MapAdressComponent } from 'app/pages/map-adress/map-adress.component';
+import { MapTransactionComponent } from 'app/pages/map-transaction/map-transaction.component';
+import { InstallationComponent } from 'app/pages/installation/installation.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -55,7 +62,13 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'matchProfileCategories', component: MatchProfileCategorieComponent },
     { path: 'ajoutMatchProfileCategories', component: AddMatchProfileCategorieComponent },
     { path: 'addImageProduct', component: AddImageProductComponent },
-
+    { path: 'crudMap', component: CrudMapComponent },
+    { path: 'updateMap/:id', component: UpdateMapComponent },
+    { path: 'produitMap', component: MapProductComponent },
+    { path: 'clientMap', component: MapClientComponent },
+    { path: 'adressMap', component: MapAdressComponent },
+    { path: 'transactionMap', component: MapTransactionComponent },
+    {path:'installation',component:InstallationComponent},
     {path:"maps",component:MapsComponent}
 
 

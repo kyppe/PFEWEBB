@@ -77,7 +77,21 @@ export class CommandesComponent implements OnInit {
 
 
 
-
+  change(index: number) {
+    console.log(this.checkList);
+    
+    this.checkList[index] = !this.checkList[index];
+    if (this.checkList[index]) {
+      this.selectedItems.push(this.filteredCommandes[index]);
+    } else {
+      const selectedItemIndex = this.selectedItems.findIndex(
+        (item) => item.id === this.filteredCommandes[index].id
+      );
+      if (selectedItemIndex !== -1) {
+        this.selectedItems.splice(selectedItemIndex, 1);
+      }
+    }
+  }
   saveEtat(com:any) {
     // this.commandeService
     //   .updateEtateCommande(this.selectedItems, this.selectedOption)
@@ -224,5 +238,20 @@ export class CommandesComponent implements OnInit {
       `);
       printWindow.document.close();
     }
+  }
+  save() {
+    this.commandeService
+      .updateEtateCommande(this.selectedItems, this.selectedOption)
+      .subscribe((data) => {
+        console.log(data);
+        this.socket.emit("changeEtat", this.selectedItems);
+        this.filteredCommandes = data;
+        this.tabCommandes = data;
+        this.selectedItems  = Array(this.filteredCommandes.length).fill(false)
+        this.ngOnInit()
+      });
+    console.log("Selected Items:", this.selectedItems);
+    console.log("Selected Option:", this.selectedOption); // Log the selected option
+    // Here you can do whatever you want with the selected items and option
   }
 } 

@@ -10,7 +10,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn btn-warning"><a href="/ajoutClient" style="color: white;">Ajouter un client</a></button>
+        <button type="button" class="btn btn-info btn-sm mr-1"><a href="/ajoutClient" style="color: white;">Ajouter un client</a></button>
       </div>
       <div class="card-body">
         <div class="table-responsive">
@@ -47,16 +47,16 @@
                   {{cli.phone}}
                 </td>
 
-                <td style="text-align: center;">
+                <td >
                   
-                  <button class="btn btn-info  mr-1"  (click)="detailsClient(cli.id)">Voir détails</button> 
+                  <button type="button" class="btn btn-info btn-sm mr-1" (click)="detailsClient(cli.id)">Voir détails</button> 
 
-                  <Button type="button" class="btn btn-warning mr-1" (click)="updateClient(cli.id)">Mettre à jour</Button>      
+                  <Button type="button" class="btn btn-info btn-sm mr-1" (click)="updateClient(cli.id)">Mettre à jour</Button>      
                             
-                 <button class="btn btn-danger mr-1"  (click)="deleteClient(cli.id)">Supprimer</button> 
+                 <button type="button" class="btn btn-info btn-sm mr-1" (click)="deleteClient(cli.id)">Supprimer</button> 
 
                 
-                <button type="button"   (click)="ActiverCompte(i,cli)" class="btn btn-success mr-1" *ngIf="cli.actif==false">Activer compte</button>
+                <button type="button" class="btn btn-info btn-sm mr-1"   (click)="ActiverCompte(i,cli)"  *ngIf="cli.actif==false">Activer compte</button>
               </td>
                
               </tr>

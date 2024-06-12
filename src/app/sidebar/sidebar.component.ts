@@ -11,19 +11,15 @@ export const ROUTES: RouteInfo[] = [
   { path: "/dashboard", title: "Dashboard", icon: "nc-bank", class: "" },
   { path: "/commandes", title: "Commandes", icon: "nc-tile-56", class: "" },
   { path: "/clients", title: "Clients", icon: "nc-single-02", class: "" },
-  { path: "/commerciaux", title: "Commerciaux", icon: "nc-badge", class: "" },
-  { path: "/produits", title: "Produits", icon: "nc-badge", class: "" },
-  { path: "/categories", title: "Categories", icon: "nc-badge", class: "" },
+  { path: "/commerciaux", title: "Commerciaux", icon: "nc-delivery-fast", class: "" },
+  { path: "/produits", title: "Produits", icon: "nc-app", class: "" },
+  { path: "/categories", title: "Categories", icon: "nc-tag-content", class: "" },
   { path: "/profiles", title: "Profiles", icon: "nc-badge", class: "" },
-  { path: "/maps", title: "maps", icon: "nc-single-copy-04", class: "" },
-  { path: "/addImageProduct", title: "upload image", icon: "nc-single-copy-04", class: "" },
-
-  {
-    path: "/matchProfileCategories",
-    title: "matchProfileCategories",
-    icon: "nc-badge",
-    class: "",
-  },
+  { path: "/maps", title: "Importer des données", icon: "nc-cloud-upload-94", class: "" },
+  { path: "/addImageProduct", title: "upload image", icon: "nc-album-2", class: "" },
+  { path: "/crudMap", title: "Maps", icon: "nc-single-copy-04", class: "" },
+  {path:  "/matchProfileCategories",title: "matchProfileCategories",icon: "nc-vector",class: ""},
+  {path:  "/installation",title: "installation",icon: "nc-vector",class: ""},
 ];
 
 @Component({

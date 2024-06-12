@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Mapper } from 'app/models/mapper';
+import { Maps } from 'app/models/maps';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,6 +15,18 @@ export class MapsService {
 
   convert(data: any): Observable<any> {
     return this.http.post<any>(this.url, data);
+  }
+  getAll():Observable<Mapper[]> {
+    return this.http.get<Mapper[]>(this.url);
+  }
+  getbyId(id:string):Observable<Mapper> {
+    return this.http.get<Mapper>(this.url+"/"+id);
+  }
+  delete(id:number):Observable<Mapper> {
+    return this.http.delete<Mapper>(this.url+"/"+id);
+  }
+  update(id:string,data:Mapper):Observable<Mapper> {
+    return this.http.put<Mapper>(this.url+"/"+id,data);
   }
   getAttribProduct(): Observable<any> {
     return this.http.get<any>(this.url+"/attributes/product");
