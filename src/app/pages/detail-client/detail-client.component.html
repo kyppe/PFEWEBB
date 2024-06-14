@@ -55,11 +55,11 @@
               <td>{{ tra.libelle }}</td>
               <td>{{ tra.echance }}</td>
               <td>
-                <span *ngIf="tra.typeTra == 1" style="color: green">{{
+                <span *ngIf="tra.credit >0" style="color: green">{{
                   tra.credit
                 }}</span
-                ><span *ngIf="tra.typeTra == 0" style="color: red"
-                  >-{{ tra.credit }}</span
+                ><span *ngIf="tra.credit < 0" style="color: red"
+                  >{{ tra.credit }}</span
                 >
               </td>
          

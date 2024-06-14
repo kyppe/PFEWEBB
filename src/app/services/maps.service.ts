@@ -28,6 +28,9 @@ export class MapsService {
   update(id:string,data:Mapper):Observable<Mapper> {
     return this.http.put<Mapper>(this.url+"/"+id,data);
   }
+  add(data:Mapper):Observable<Mapper> {
+    return this.http.post<Mapper>(this.url+"/addMap",data);
+  }
   getAttribProduct(): Observable<any> {
     return this.http.get<any>(this.url+"/attributes/product");
   }

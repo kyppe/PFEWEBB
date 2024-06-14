@@ -1,0 +1,109 @@
+<div class="card card-user mx-auto" style="max-width: 500px">
+    <div class="card-header text-center">
+      <h5 class="card-title">Mettre à jour d'une Map</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="clientForm" (ngSubmit)="updateMap()">
+        <div class="form-group text-center">
+          <label>Table de la base importé</label>
+          <input
+            type="text"
+            class="form-control limited-width mx-auto"
+            placeholder="dynTableName"
+            formControlName="dynTableName"
+            [ngClass]="{
+              'is-invalid': submitted && clientForm.controls.dynTableName.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && clientForm.controls.dynTableName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="clientForm.controls.dynTableName.errors.required">
+              Table de la base importé is required
+            </div>
+            <div *ngIf="clientForm.controls.dynTableName.errors.pattern">
+              Invalid Table de la base importé format
+            </div>
+          </div>
+        </div>
+        <div class="form-group text-center">
+          <label>Champ de la base importé </label>
+          <input
+            type="text"
+            class="form-control limited-width mx-auto"
+            placeholder="dynfield"
+            formControlName="dynfield"
+            [ngClass]="{
+              'is-invalid': submitted && clientForm.controls.dynfield.errors
+            }"
+          />
+          <div
+            *ngIf="submitted && clientForm.controls.dynfield.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="clientForm.controls.dynfield.errors.required">
+              Champ de la base importé is required
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group text-center">
+          <label>Table de la base de solutions</label>
+          <select
+            class="form-control limited-width mx-auto"
+            formControlName="bdTableName"
+            [ngClass]="{
+              'is-invalid': submitted && clientForm.controls.bdTableName.errors
+            }"
+                      (change)="changeAtt($event)"
+  
+          >
+            <option value="">Select a bdTableName</option>
+            <option value="product">product</option>
+            <option value="client">client</option>
+            <option value="addresses">addresses</option>
+            <option value="transaction">transaction</option>
+          </select>
+          <div
+            *ngIf="submitted && clientForm.controls.bdTableName.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="clientForm.controls.bdTableName.errors.required">
+              Table de la base de solutions is required
+            </div>
+          </div>
+        </div>
+  
+        <div class="form-group text-center">
+          <label>Champ de la base de solutions</label>
+          <select
+            class="form-control limited-width mx-auto"
+            formControlName="bdfield"
+            [ngClass]="{
+              'is-invalid': submitted && clientForm.controls.bdfield.errors
+            }"
+          >
+            <option value="">Select a bdfield</option>
+            <option *ngFor="let att of listAtt" [value]="att">{{att}}</option>
+   
+          </select>
+          <div
+            *ngIf="submitted && clientForm.controls.bdfield.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="clientForm.controls.bdfield.errors.required">
+              Champ de la base de solutions is required
+            </div>
+          </div>
+        </div>
+  
+        <div class="update text-center">
+          <button type="submit" class="btn btn-primary btn-round mx-auto">
+            Ajouter
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

@@ -43,9 +43,9 @@
                     
                     <td>
 
-                        <button class="btn btn-warning mr-1" (click)="affecterProduits(cat.id)">Affecter Produits</button>
+                        <button type="button" class="btn btn-info btn-sm mr-1" (click)="affecterProduits(cat.id)">Affecter Produits</button>
                   
-                      <button class="btn btn-warning" (click)="deleteCategorie(cat.id)">Supprimer</button>
+                      <button type="button" class="btn btn-info btn-sm mr-1"(click)="deleteCategorie(cat.id)">Supprimer</button>
                     </td>
                   </tr>
                 </tbody>
@@ -55,4 +55,11 @@
         </div>
       </div>
     </div>
-   
+    <div class="container mt-3">
+
+    
+      <div *ngIf="notification" class="alert alert-success alert-dismissible fade show mt-2" style="width: 15%; position: absolute; top: 0;right: 0;" role="alert">
+        {{ notification }}
+      </div>
+    </div>
+  

@@ -54,4 +54,11 @@
         </div>
       </div>
     </div>
-   
+    <div class="container mt-3">
+
+    
+      <div *ngIf="notification" class="alert alert-success alert-dismissible fade show mt-2" style="width: 15%; position: absolute; top: 0;right: 0;" role="alert">
+        {{ notification }}
+      </div>
+    </div>
+  

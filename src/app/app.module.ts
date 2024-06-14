@@ -29,7 +29,7 @@ import { CrudMapComponent } from './pages/crud-map/crud-map.component';
 import { UpdateMapComponent } from './pages/update-map/update-map.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { InstallationComponent } from './pages/installation/installation.component';
-
+import { AjouteMapComponent } from './pages/ajoute-map/ajoute-map.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,7 @@ import { InstallationComponent } from './pages/installation/installation.compone
       UpdateMapComponent,
       PopupComponent,
       InstallationComponent,
-      
+      AjouteMapComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -62,11 +62,11 @@ import { InstallationComponent } from './pages/installation/installation.compone
     MatSnackBarModule,
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: MyInterceptorService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

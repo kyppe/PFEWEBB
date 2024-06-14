@@ -11,6 +11,7 @@ export class MyInterceptorService  implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {    
     // Modify the request if needed
       let token =localStorage.getItem("accessToken")
+      
     const modifiedRequest = request.clone({
     
       headers: request.headers.set('Authorization', `Bearer ${token}`)

@@ -16,7 +16,7 @@ declare interface TableData {
 
 export class CommerciauxComponent implements OnInit {
 
-
+  notification:string=""
 
   tabCommerciaux!: Commercial[];
   searchText: string = '';
@@ -51,7 +51,12 @@ export class CommerciauxComponent implements OnInit {
       
       this.filteredCommercials=this.filteredCommercials.filter(e=>e.id!=id);
       console.log(this.filteredCommercials);
-      
+      this.notification = "Client supprimé !";
+
+      setTimeout(() => {
+        this.notification = "";
+      }, 2000); 
+    
     })
     
   }

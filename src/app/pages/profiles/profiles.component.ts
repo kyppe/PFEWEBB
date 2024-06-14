@@ -9,7 +9,7 @@ import { ProfileService } from 'app/services/profile.service';
   styleUrls: ['./profiles.component.scss']
 })
 export class ProfilesComponent implements OnInit {
-
+  notification:string=""
   tabProfiles!: Profile[];
   searchText: string = '';
   filteredProfiles!: Profile[];
@@ -43,6 +43,13 @@ export class ProfilesComponent implements OnInit {
       
       this.filteredProfiles=this.filteredProfiles.filter(e=>e.id!=id);
       console.log(this.filteredProfiles);
+      
+     this.notification = "Client supprimé !";
+
+     setTimeout(() => {
+       this.notification = "";
+     }, 2000); 
+
       
     })
     

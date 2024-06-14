@@ -1,3 +1,15 @@
+<div class="container mt-3">
+
+    
+  <div *ngIf="notification" 
+  [ngClass]="{'alert-success': !error, 'alert-danger': error}" 
+  class="alert alert-dismissible fade show mt-2" 
+  style="width: 25%; position: absolute; top: 0; right: 0;" 
+  role="alert">
+{{ notification }}
+</div>
+</div>
+
 <div class="col-md-12">
   <div class="card">
     <button
@@ -66,7 +78,7 @@
               <tr>
                 <td
                   style="text-align: center"
-                  *ngFor="let row of this.dataTable.columns; index as index"
+                  *ngFor="let row of this.dataTable?.columns; index as index"
                 >
                   <input
                     type="checkbox"
@@ -86,17 +98,17 @@
               <tr>
                 <th
                   style="text-align: center"
-                  *ngFor="let header of dataTable.columns"
+                  *ngFor="let header of dataTable?.columns"
                 >
                   {{ header }}
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let row of dataTable.values">
+              <tr *ngFor="let row of dataTable?.values">
                 <td
                   style="text-align: center"
-                  *ngFor="let cell of dataTable.columns"
+                  *ngFor="let cell of dataTable?.columns"
                 >
                   {{ row[cell] }}
                 </td>

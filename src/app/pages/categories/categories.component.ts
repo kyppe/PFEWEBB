@@ -16,7 +16,7 @@ export class CategoriesComponent implements OnInit {
 
   orig!:string;
   aux:boolean=false;
-
+notification:string=""
   constructor(private categorieService: CategorieService, private router: Router) { }
 
   ngOnInit() {
@@ -46,6 +46,12 @@ export class CategoriesComponent implements OnInit {
       
       this.filteredCategories=this.filteredCategories.filter(e=>e.id!=id);
       console.log(this.filteredCategories);
+      
+     this.notification = "Client supprimé !";
+
+     setTimeout(() => {
+       this.notification = "";
+     }, 2000); 
       
     })
     

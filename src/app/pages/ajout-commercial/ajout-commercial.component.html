@@ -50,9 +50,9 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label>CIN</label>
-                  <input type="text" class="form-control" placeholder="Matricule Fiscale/Cin"  formControlName="mf" [ngClass]="{ 'is-invalid': submitted && commercialForm.controls.mf.errors }">
-                  <div *ngIf="submitted && commercialForm.controls.mf.errors" class="invalid-feedback">
-                    <div *ngIf="commercialForm.controls.mf.errors.required">CIN is required</div>
+                  <input type="text" class="form-control" placeholder="Matricule Fiscale/Cin"  formControlName="cin" [ngClass]="{ 'is-invalid': submitted && commercialForm.controls.cin.errors }">
+                  <div *ngIf="submitted && commercialForm.controls.cin.errors" class="invalid-feedback">
+                    <div *ngIf="commercialForm.controls.cin.errors.required">CIN is required</div>
                   </div>                 
                </div>
               </div>
