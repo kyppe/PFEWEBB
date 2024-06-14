@@ -36,48 +36,47 @@ import { MapTransactionComponent } from 'app/pages/map-transaction/map-transacti
 import { InstallationComponent } from 'app/pages/installation/installation.component';
 import { AjouteMapComponent } from 'app/pages/ajoute-map/ajoute-map.component';
 
+
+
+
+
+
+import { AuthGuard } from 'app/auth.guard';
+
 export const AdminLayoutRoutes: Routes = [
-    { path: 'dashboard', component: DashboardComponent },
-    { path: 'clients', component: ClientsComponent },
-    { path: 'commerciaux', component: CommerciauxComponent },
-    { path: 'commandes', component: CommandesComponent },
-    { path: 'produits', component: ProduitComponent },
-    { path: 'categories', component: CategoriesComponent },
-    { path: 'profiles', component: ProfilesComponent },
-    { path: 'ajoutProfile', component: AjoutProfileComponent },
-    { path: 'ajoutCategorie', component: AjoutCategorieComponent },
-    { path: 'ajoutCommercial', component: AjoutCommercialComponent },
-    { path: 'ajoutCommande', component: AjoutCommandeComponent },
-    { path: 'ajoutClient', component: AjoutClientComponent },
-    { path: 'ajoutProduit', component: AjoutProduitComponent },
-    { path: 'editProduit/:id', component: EditProduitComponent },
-    { path: 'editCategorie/:intit', component: EditCategorieComponent },
-    { path: 'editProfile/:intit', component: EditProfileComponent },
-    { path: 'editClient/:id', component: EditClientComponent },
-    { path: 'editCommercial/:id', component: EditCommercialComponent },
-    { path: 'editCommande/:id', component: EditCommandeComponent },
-    { path: 'detailCommande/:id', component: DetailCommandeComponent },
-    { path: 'detailClient/:id', component: DetailClientComponent },
-    { path: 'affecterClients/:id', component: AffecterClientsComponent },
-    { path: 'affecterProduits/:id', component: AffecterProduitsComponent },
-    { path: 'matchProfileCategories', component: MatchProfileCategorieComponent },
-    { path: 'ajoutMatchProfileCategories', component: AddMatchProfileCategorieComponent },
-    { path: 'addImageProduct', component: AddImageProductComponent },
-    { path: 'crudMap', component: CrudMapComponent },
-    { path: 'updateMap/:id', component: UpdateMapComponent },
-    { path: 'produitMap', component: MapProductComponent },
-    { path: 'clientMap', component: MapClientComponent },
-    { path: 'adressMap', component: MapAdressComponent },
-    { path: 'transactionMap', component: MapTransactionComponent },
-    { path: 'ajoutMap', component: AjouteMapComponent },
-    {path:'installation',component:InstallationComponent},
-    {path:"maps",component:MapsComponent}
-
-
-
-
-
-
-
-
-];
+    { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+    { path: 'clients', component: ClientsComponent, canActivate: [AuthGuard] },
+    { path: 'commerciaux', component: CommerciauxComponent, canActivate: [AuthGuard] },
+    { path: 'commandes', component: CommandesComponent, canActivate: [AuthGuard] },
+    { path: 'produits', component: ProduitComponent, canActivate: [AuthGuard] },
+    { path: 'categories', component: CategoriesComponent, canActivate: [AuthGuard] },
+    { path: 'profiles', component: ProfilesComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutProfile', component: AjoutProfileComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutCategorie', component: AjoutCategorieComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutCommercial', component: AjoutCommercialComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutCommande', component: AjoutCommandeComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutClient', component: AjoutClientComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutProduit', component: AjoutProduitComponent, canActivate: [AuthGuard] },
+    { path: 'editProduit/:id', component: EditProduitComponent, canActivate: [AuthGuard] },
+    { path: 'editCategorie/:intit', component: EditCategorieComponent, canActivate: [AuthGuard] },
+    { path: 'editProfile/:intit', component: EditProfileComponent, canActivate: [AuthGuard] },
+    { path: 'editClient/:id', component: EditClientComponent, canActivate: [AuthGuard] },
+    { path: 'editCommercial/:id', component: EditCommercialComponent, canActivate: [AuthGuard] },
+    { path: 'editCommande/:id', component: EditCommandeComponent, canActivate: [AuthGuard] },
+    { path: 'detailCommande/:id', component: DetailCommandeComponent, canActivate: [AuthGuard] },
+    { path: 'detailClient/:id', component: DetailClientComponent, canActivate: [AuthGuard] },
+    { path: 'affecterClients/:id', component: AffecterClientsComponent, canActivate: [AuthGuard] },
+    { path: 'affecterProduits/:id', component: AffecterProduitsComponent, canActivate: [AuthGuard] },
+    { path: 'matchProfileCategories', component: MatchProfileCategorieComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutMatchProfileCategories', component: AddMatchProfileCategorieComponent, canActivate: [AuthGuard] },
+    { path: 'addImageProduct', component: AddImageProductComponent, canActivate: [AuthGuard] },
+    { path: 'crudMap', component: CrudMapComponent, canActivate: [AuthGuard] },
+    { path: 'updateMap/:id', component: UpdateMapComponent, canActivate: [AuthGuard] },
+    { path: 'produitMap', component: MapProductComponent, canActivate: [AuthGuard] },
+    { path: 'clientMap', component: MapClientComponent, canActivate: [AuthGuard] },
+    { path: 'adressMap', component: MapAdressComponent, canActivate: [AuthGuard] },
+    { path: 'transactionMap', component: MapTransactionComponent, canActivate: [AuthGuard] },
+    { path: 'installation', component: InstallationComponent, canActivate: [AuthGuard] },
+    { path: 'maps', component: MapsComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutMap', component: AjouteMapComponent ,canActivate: [AuthGuard] },
+  ];
