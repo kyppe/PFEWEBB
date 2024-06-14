@@ -62,11 +62,11 @@ import { AjouteMapComponent } from './pages/ajoute-map/ajoute-map.component';
     MatSnackBarModule,
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: MyInterceptorService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: MyInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

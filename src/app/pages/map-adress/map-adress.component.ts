@@ -119,7 +119,7 @@ export class MapAdressComponent implements OnInit {
   }
 
   save() {
-    let find = false;
+    let find = true;
     let l = [];
     for (let i = 0; i < this.selects.length; i++) {
       l.push({
