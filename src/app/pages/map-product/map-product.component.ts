@@ -10,6 +10,7 @@ import { MapsService } from "app/services/maps.service";
 })
 export class MapProductComponent implements OnInit {
 
+  error = false;
   fromLogin!: FormGroup;
   selectedFileType: any;
   tablenumber = 0;
@@ -48,6 +49,7 @@ export class MapProductComponent implements OnInit {
   listRow: any;
   listdata: any;
   selects: any;
+  notification:string=""
 
   onFileSelected(event: any) {
     this.files = event.target.files[0];
@@ -59,7 +61,8 @@ export class MapProductComponent implements OnInit {
     this.server.convert(formData).subscribe((data) => {
       console.log(data);
       this.testshow = true;
-
+      this.error = false 
+      this.notification = "Données importées avec succès !";
       // Update dataTable with new data
       this.dataTable = data;
 
@@ -92,19 +95,42 @@ export class MapProductComponent implements OnInit {
           }
         }
       }
-    });
+
+      setTimeout(() => {
+        this.notification = "";
+      }, 2000);
+    },
+    (err) => {
+      this.notification =
+        "Il y a une erreur de structure dans le fichier" +
+        err.error.error.message;
+      this.error = true;
+      console.log(this.notification);
+
+      setTimeout(() => {
+        this.notification = null;
+      }, 2000);
+      console.log("HTTP Error ===>", err.error.error);
+    },
+  
+  
+  );
   }
 
   save() {
     let l = [];
+    let find = false;
     for (let i = 0; i < this.selects.length; i++) {
       l.push({
         bdfield: this.selects[i],
         dynfield: this.dataTable.columns[i],
         primaryKey: this.checkBoxsValues[i],
       });
+      if (this.selects[i].toLowerCase() == "ref") {
+        find = true;
+      }
     }
-
+    if (find) {
     console.log(l);
     console.log(this.dataTable);
     this.server
@@ -112,7 +138,36 @@ export class MapProductComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;
-      });
+        this.error = false 
+        this.notification = "Données enregistrées avec succès.";
+
+        setTimeout(() => {
+          this.notification = "";
+        }, 2000); 
+  
+      },
+      (err) => {
+        this.notification =
+          "Il y a une erreur de structure dans le fichier" +
+          err.error.error.message;
+        this.error = true;
+        console.log(this.notification);
+
+        setTimeout(() => {
+          this.notification = null;
+        }, 2000);
+        console.log("HTTP Error ===>", err.error.error);
+      },
+    
+    );  } else {
+        this.error = true;
+        this.notification = "le champ 'ref' est nécessaire";
+  
+        setTimeout(() => {
+          this.notification = "";
+        }, 2000);
+      }
+
   }
   nextFile() {
     let l = [];
@@ -131,7 +186,21 @@ export class MapProductComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         this.saveTest = true;
-      });
+        this.notification = "Données enregistrées avec succès.";
+
+        setTimeout(() => {
+          this.notification = "";
+        }, 2000); 
+  
+      },
+      err=> {
+        this.error = true ;
+        this.notification = "une erreur s'est produite";
+        setTimeout(() => {
+          this.notification = "";
+        }, 2000);
+      }
+    );
   }
 
   nextPage() {

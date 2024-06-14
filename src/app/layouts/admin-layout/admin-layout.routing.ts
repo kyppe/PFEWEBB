@@ -34,6 +34,7 @@ import { MapClientComponent } from 'app/pages/map-client/map-client.component';
 import { MapAdressComponent } from 'app/pages/map-adress/map-adress.component';
 import { MapTransactionComponent } from 'app/pages/map-transaction/map-transaction.component';
 import { InstallationComponent } from 'app/pages/installation/installation.component';
+import { AjouteMapComponent } from 'app/pages/ajoute-map/ajoute-map.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent },
@@ -68,6 +69,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'clientMap', component: MapClientComponent },
     { path: 'adressMap', component: MapAdressComponent },
     { path: 'transactionMap', component: MapTransactionComponent },
+    { path: 'ajoutMap', component: AjouteMapComponent },
     {path:'installation',component:InstallationComponent},
     {path:"maps",component:MapsComponent}
 

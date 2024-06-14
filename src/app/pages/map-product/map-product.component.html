@@ -1,3 +1,16 @@
+  
+<div class="container mt-3">
+
+    
+  <div *ngIf="notification" 
+  [ngClass]="{'alert-success': !error, 'alert-danger': error}" 
+  class="alert alert-dismissible fade show mt-2" 
+  style="width: 25%; position: absolute; top: 0; right: 0;" 
+  role="alert">
+{{ notification }}
+</div>
+</div>
+
 <div class="col-md-12">
   <div class="card">
     <button
@@ -187,3 +200,4 @@
     <button class="btn-close-popup" (click)="togglePopup1()">Close</button>
   </div>
 </div>
+
