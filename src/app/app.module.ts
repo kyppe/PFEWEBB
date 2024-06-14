@@ -29,6 +29,7 @@ import { CrudMapComponent } from './pages/crud-map/crud-map.component';
 import { UpdateMapComponent } from './pages/update-map/update-map.component';
 import { PopupComponent } from './pages/popup/popup.component';
 import { InstallationComponent } from './pages/installation/installation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { InstallationComponent } from './pages/installation/installation.compone
       UpdateMapComponent,
       PopupComponent,
       InstallationComponent,
+      
   ],
   imports: [
     BrowserAnimationsModule,

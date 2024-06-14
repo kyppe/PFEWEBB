@@ -35,6 +35,9 @@ import { MapAdressComponent } from 'app/pages/map-adress/map-adress.component';
 import { MapTransactionComponent } from 'app/pages/map-transaction/map-transaction.component';
 import { InstallationComponent } from 'app/pages/installation/installation.component';
 import { AuthGuard } from 'app/auth.guard';
+import { TypeTransactionComponent } from 'app/pages/type-transaction/type-transaction.component';
+import { AjoutTypeTransactionComponent } from 'app/pages/ajout-type-transaction/ajout-type-transaction.component';
+import { EditTypeTransactionComponent } from 'app/pages/edit-type-transaction/edit-type-transaction.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
@@ -70,5 +73,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'adressMap', component: MapAdressComponent, canActivate: [AuthGuard] },
     { path: 'transactionMap', component: MapTransactionComponent, canActivate: [AuthGuard] },
     { path: 'installation', component: InstallationComponent, canActivate: [AuthGuard] },
-    { path: 'maps', component: MapsComponent, canActivate: [AuthGuard] }
+    { path: 'maps', component: MapsComponent, canActivate: [AuthGuard] },
+    { path: 'typeTransaction', component: TypeTransactionComponent, canActivate: [AuthGuard] },
+    { path: 'ajoutTypeTransaction', component: AjoutTypeTransactionComponent, canActivate: [AuthGuard] },
+    { path: 'editTypeTransaction/:id', component: EditTypeTransactionComponent, canActivate: [AuthGuard] }
+
+
   ];

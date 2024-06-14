@@ -31,6 +31,9 @@ import { AffecterClientsComponent } from 'app/pages/affecter-clients/affecter-cl
 import { AffecterProduitsComponent } from 'app/pages/affecter-produits/affecter-produits.component';
 import { AddMatchProfileCategorieComponent } from 'app/pages/add-match-profile-categorie/add-match-profile-categorie.component';
 import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categorie/match-profile-categorie.component';
+import { AjoutTypeTransactionComponent } from 'app/pages/ajout-type-transaction/ajout-type-transaction.component';
+import { EditTypeTransactionComponent } from 'app/pages/edit-type-transaction/edit-type-transaction.component';
+import { TypeTransactionComponent } from 'app/pages/type-transaction/type-transaction.component';
 
 
 
@@ -71,6 +74,9 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
     AffecterProduitsComponent,
     MatchProfileCategorieComponent,
     AddMatchProfileCategorieComponent,
+    TypeTransactionComponent,
+    AjoutTypeTransactionComponent,
+    EditTypeTransactionComponent,
 
     
 

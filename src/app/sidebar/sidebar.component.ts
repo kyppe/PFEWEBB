@@ -18,8 +18,9 @@ export const ROUTES: RouteInfo[] = [
   { path: "/maps", title: "Importer des données", icon: "nc-cloud-upload-94", class: "" },
   { path: "/addImageProduct", title: "upload image", icon: "nc-album-2", class: "" },
   { path: "/crudMap", title: "Maps", icon: "nc-single-copy-04", class: "" },
-  {path:  "/matchProfileCategories",title: "Affecter remise",icon: "nc-vector",class: ""},
-  {path:  "/installation",title: "installation",icon: "nc-tv-2",class: ""},
+  { path: "/matchProfileCategories", title: "Affecter remise", icon: "nc-vector", class: "" },
+  { path: "/typeTransaction", title: "typeTransaction", icon: "", class: "" },
+  { path: "/installation", title: "installation", icon: "nc-tv-2", class: "" },
 ];
 
 @Component({
