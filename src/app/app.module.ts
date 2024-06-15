@@ -41,7 +41,6 @@ import { AjouteMapComponent } from './pages/ajoute-map/ajoute-map.component';
     MapTransactionComponent,
     MapAdressComponent,
     AddImageProductComponent,
-
     SuccessDialogComponent,
       CrudMapComponent,
       UpdateMapComponent,

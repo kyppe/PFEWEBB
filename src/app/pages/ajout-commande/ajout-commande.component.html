@@ -30,7 +30,8 @@
             </select>
           </td>
           <td>
-            <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}">
+            <input type="number" min="1" class="form-control" [(ngModel)]="row.qte" name="quantity{{i}}" positiveNumber required>
+        
           </td>
           <td>
             <p>{{row.product?.price}}</p>

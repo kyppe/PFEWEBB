@@ -9,6 +9,8 @@ import { ClientService } from 'app/services/client.service';
 import { CommandeService } from 'app/services/commande.service';
 import { CommercialService } from 'app/services/commercial.service';
 import { ProduitService } from 'app/services/produit.service';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-ajout-commande',

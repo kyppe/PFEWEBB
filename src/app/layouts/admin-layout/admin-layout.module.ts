@@ -34,6 +34,7 @@ import { MatchProfileCategorieComponent } from 'app/pages/match-profile-categori
 import { AjoutTypeTransactionComponent } from 'app/pages/ajout-type-transaction/ajout-type-transaction.component';
 import { EditTypeTransactionComponent } from 'app/pages/edit-type-transaction/edit-type-transaction.component';
 import { TypeTransactionComponent } from 'app/pages/type-transaction/type-transaction.component';
+import { PositiveNumberDirective } from 'app/positive-number.directive';
 
 
 
@@ -77,6 +78,8 @@ import { TypeTransactionComponent } from 'app/pages/type-transaction/type-transa
     TypeTransactionComponent,
     AjoutTypeTransactionComponent,
     EditTypeTransactionComponent,
+    PositiveNumberDirective,
+
 
     
 
